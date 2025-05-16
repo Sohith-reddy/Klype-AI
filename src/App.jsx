@@ -5,7 +5,7 @@ import './App.css'
 import LandingPage from './components/LandingPage'
 import { Route, Routes } from 'react-router-dom'
 // import Form from './components/Form'
-import KlypeForm from './components/KlypeForm'
+// import KlypeForm from './components/KlypeForm'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -14,7 +14,7 @@ function App() {
     <>
     <Routes>
       <Route path='/' element={<LandingPage/>}/>
-      <Route path='/form' element={<KlypeForm/>}/>
+      {/* <Route path='/form' element={<KlypeForm/>}/> */}
     </Routes>
 
     </>
