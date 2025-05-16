@@ -13,8 +13,8 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path='/' element={      <LandingPage/>}/>
-      <Route path='/form' element={      <KlypeForm/>}/>
+      <Route path='/' element={<LandingPage/>}/>
+      <Route path='/form' element={<KlypeForm/>}/>
     </Routes>
 
     </>
