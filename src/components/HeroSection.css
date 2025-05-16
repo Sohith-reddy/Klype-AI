@@ -1,0 +1,43 @@
+.hero-section {
+  background: radial-gradient(circle at center, #29002e, #000000);
+}
+.trusted-section {
+  background: radial-gradient(circle at center, #29002e, #000000);
+}
+
+.marquee-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+.back{
+
+  background: radial-gradient(circle at center, #29002e, #000000);
+
+}
+.marquee {
+  display: flex;
+  gap: 3rem;
+  animation: scroll-left 25s linear infinite;
+  width: max-content;
+}
+
+.profile {
+  min-width: 120px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
