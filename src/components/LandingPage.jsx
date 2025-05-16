@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Nav, Navbar, Button, Row, Col,Card } from 'react-bootstrap';
 import './HeroSection.css'; // Optional: for custom styles
 import { FaLinkedin } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import KlypeFormModal from './KlypeFormModal';
 export default function LandingPage() {
+  const [showForm, setShowForm] = useState(false)
+  const handleShowForm = () => setShowForm(true)
+  const handleCloseForm = () => setShowForm(false)
     const users = [
   { name: 'Daniel Lee', role: 'Content Strategist - TechCo', img: '/images/daniel.png' },
   { name: 'Amelia Davis', role: 'Founder - StartupBoost', img: '/images/amelia1.png' },
@@ -109,7 +113,11 @@ export default function LandingPage() {
               <Nav.Link href="#" className="text-white">FAQ</Nav.Link>
             </Nav>
           </Navbar.Collapse>
-        <Link to="/form"> <Button variant="dark" className="rounded-pill px-4">Sign in</Button></Link> 
+        <Button
+            variant="dark"
+            className="rounded-pill px-4"
+            onClick={handleShowForm}
+          >Sign in</Button>
         </Container>
       </Navbar>
 
@@ -390,6 +398,7 @@ export default function LandingPage() {
             <Button
               variant="dark"
               className="px-4 py-2 rounded-pill"
+              onClick={handleShowForm}
             >
               Join the waitlist
             </Button>
@@ -436,6 +445,8 @@ export default function LandingPage() {
         </Row>
       </Container>
     </footer>
+    <KlypeFormModal show={showForm} handleClose={handleCloseForm} />
+
     </>
   )
 }
