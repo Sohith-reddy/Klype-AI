@@ -54,7 +54,7 @@ export default function KlypeFormModal({ show, handleClose }) {
             <Form.Group className="mb-3" controlId="linkedinUrl">
               <Form.Control
                 type="url"
-                placeholder="e.g. https://linkedin.com/in/johndoe"
+                placeholder="e.g. https://linkedin.com/in/johnwick"
                 className="bg-dark text-white border-0 rounded-3 px-3 py-2"
               />
             </Form.Group>
