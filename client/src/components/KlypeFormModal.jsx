@@ -1,5 +1,5 @@
-// KlypeFormModal.js
-import React,{useState} from "react";
+//KlypeFormModal.jsx
+import React, { useState } from "react";
 import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import axios from "axios";
 
@@ -17,7 +17,7 @@ export default function KlypeFormModal({ show, handleClose }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/waitlist",
+        process.env.REACT_APP_API_URL || "http://localhost:3001/api/waitlist",
         data
       );
       if (response.status === 200) {
@@ -26,7 +26,10 @@ export default function KlypeFormModal({ show, handleClose }) {
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Something went wrong.");
+      alert(
+        error?.response?.data?.message ||
+          "Something went wrong. Please try again later."
+      );
     } finally {
       setSubmitting(false);
     }
@@ -41,7 +44,7 @@ export default function KlypeFormModal({ show, handleClose }) {
       contentClassName="bg-black text-white rounded-4 border-0"
     >
       <Row className="g-0">
-        {/* Left Gradient Panel (optional) */}
+        {/* Left Gradient Panel */}
         <Col
           md={6}
           className="d-none d-md-flex flex-column justify-content-center align-items-start p-5 rounded-start"
@@ -75,6 +78,7 @@ export default function KlypeFormModal({ show, handleClose }) {
               size="sm"
               className="border-0 rounded-circle"
               style={{ width: "30px", height: "30px", padding: 0 }}
+              aria-label="Close"
             >
               ✕
             </Button>
@@ -83,7 +87,8 @@ export default function KlypeFormModal({ show, handleClose }) {
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="name">
               <Form.Control
-                name="name" // ✅ Add this
+                name="name"
+                id="name"
                 type="text"
                 placeholder="e.g. John Doe"
                 className="bg-dark text-white border-0 rounded-3 px-3 py-2"
@@ -93,7 +98,8 @@ export default function KlypeFormModal({ show, handleClose }) {
 
             <Form.Group className="mb-3" controlId="linkedinUrl">
               <Form.Control
-                name="linkedinUrl" // ✅ Add this
+                name="linkedinUrl"
+                id="linkedinUrl"
                 type="url"
                 placeholder="e.g. https://linkedin.com/in/johnwick"
                 className="bg-dark text-white border-0 rounded-3 px-3 py-2"
@@ -103,7 +109,8 @@ export default function KlypeFormModal({ show, handleClose }) {
 
             <Form.Group className="mb-4" controlId="email">
               <Form.Control
-                name="email" // ✅ Add this
+                name="email"
+                id="email"
                 type="email"
                 placeholder="e.g. john@example.com"
                 className="bg-dark text-white border-0 rounded-3 px-3 py-2"
