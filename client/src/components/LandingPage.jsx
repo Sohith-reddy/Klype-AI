@@ -675,7 +675,7 @@ export default function LandingPage() {
         >
           <h5 className="gradient-text mb-2">Multi-Profile Management</h5>
           <p className="text-secondary mb-4 mx-auto" style={{ maxWidth: "600px" }}>
-            Manage UpTo 5 Profiles at a time for your Team at $9 per User
+            Manage Upto 5 Profiles at a time for your Team at $9 per User
           </p>
           <div className="d-flex justify-content-center gap-4 flex-wrap">
             {[ // avatar colors and sizes
