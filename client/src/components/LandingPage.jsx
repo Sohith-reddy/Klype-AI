@@ -111,19 +111,28 @@ export default function LandingPage() {
                 className="justify-content-center"
               >
                 <Nav className="gap-4">
-                  <Nav.Link href="#" className="text-white fw-semibold">
+                  <Nav.Link
+                    href="#features"
+                    className="text-white fw-semibold nav-link"
+                  >
                     Features
                   </Nav.Link>
-                  <Nav.Link href="#" className="text-white">
+                  <Nav.Link
+                    href="#how-it-works"
+                    className="text-white nav-link"
+                  >
                     How it works
                   </Nav.Link>
-                  <Nav.Link href="#" className="text-white">
+                  <Nav.Link href="#pricing" className="text-white nav-link">
                     Pricing
                   </Nav.Link>
-                  <Nav.Link href="#" className="text-white">
+                  <Nav.Link
+                    href="#testimonials"
+                    className="text-white nav-link"
+                  >
                     Testimonials
                   </Nav.Link>
-                  <Nav.Link href="#" className="text-white">
+                  <Nav.Link href="#faq" className="text-white nav-link">
                     FAQ
                   </Nav.Link>
                 </Nav>
@@ -156,12 +165,12 @@ export default function LandingPage() {
           {/* Stats Section */}
           <Container className="text-center pb-5">
             <div
-              className="badge mt-4 py-2 px-3 rounded-pill text-white"
+              className="badge mt-4 py-3 px-4 rounded-pill text-white stats-badge"
               style={{
                 background: "linear-gradient(to right, #c800ff, #00f2ff)",
               }}
             >
-              <span style={{ fontSize: "0.85rem" }}>
+              <span className="d-block">
                 300x performance compared to generic, low-effort AI-generated
                 content.
               </span>
@@ -275,7 +284,9 @@ export default function LandingPage() {
       <div className=" back bg-dark text-light py-5 text-center">
         <h2>
           How <span className="text-white">Klype</span>{" "}
-          <span className="text-secondary" style={{fontWeight:700}}>works?</span>
+          <span className="text-secondary" style={{ fontWeight: 700 }}>
+            works?
+          </span>
         </h2>
         <p className="mb-5">All Smart Features you need in one place</p>
 
@@ -329,7 +340,9 @@ export default function LandingPage() {
                 <Card className="bg-black text-light h-100 p-4 rounded-4 text-center">
                   <Card.Body>
                     <h5 className="fw-bold">{feature.title}</h5>
-                    <p className="text-secondary text-bold mb-0">{feature.desc}</p>
+                    <p className="text-secondary text-bold mb-0">
+                      {feature.desc}
+                    </p>
                   </Card.Body>
                 </Card>
               </Col>
@@ -352,14 +365,14 @@ export default function LandingPage() {
         <Container>
           {/* Gradient badge */}
           <div
-            className="d-inline-block px-4 py-2 rounded-pill mb-4 fw-semibold"
+            className="d-inline-block px-4 py-2 rounded-pill mb-4 fw-semibold gradient-badge"
             style={{
               background: "linear-gradient(90deg, #A020F0, #00C2FF)",
               color: "#fff",
               fontSize: "0.9rem",
             }}
           >
-            Zero AI “Stench” = No Shadowban Risk
+            <span>Zero AI "Stench" = No Shadowban Risk</span>
           </div>
 
           {/* Heading */}
@@ -418,10 +431,10 @@ export default function LandingPage() {
                   <h3 className="fw-bold">{plan.price}</h3>
                   <Button
                     variant={plan.buttonStyle === "gradient" ? "light" : "dark"}
-                    className={`w-100 my-3 ${
+                    className={`w-100 my-3 waitlist-btn ${
                       plan.buttonStyle === "gradient"
-                        ? "text-dark fw-semibold"
-                        : ""
+                        ? "text-dark fw-semibold gradient-btn"
+                        : "dark-btn"
                     }`}
                     style={
                       plan.buttonStyle === "gradient"
@@ -481,7 +494,14 @@ export default function LandingPage() {
                 Join Telegram Group
               </Button>
             </div>
-            <p className="text-secondary mb-2" style={{fontSize: "1.1rem",paddingTop:'12px',fontWeight:350}}>
+            <p
+              className="text-secondary mb-2"
+              style={{
+                fontSize: "1.1rem",
+                paddingTop: "12px",
+                fontWeight: 350,
+              }}
+            >
               Get a 7-day free LinkedIn Content Calendar (worth $297) and
               experience the power of Klype firsthand!
             </p>
