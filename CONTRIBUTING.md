@@ -9,12 +9,12 @@ First off, thank you for considering contributing to Klype! It's people like you
   - LinkedIn: [Sohith's Profile](https://linkedin.com/in/sohithreddy)
 
 - **Saketh** - _Frontend Developer_
-  - GitHub: [@saketh](https://github.com/saketh)
-  - LinkedIn: [Saketh's Profile](https://linkedin.com/in/saketh)
+  - GitHub: [@saketh](https://github.com/saki1205)
+  - LinkedIn: [Saketh's Profile](https://www.linkedin.com/in/saketh-mothe/)
 
 - **Akshay** - _AI/ML Engineer_
-  - GitHub: [@akshay](https://github.com/akshay)
-  - LinkedIn: [Akshay's Profile](https://linkedin.com/in/akshay)
+  - GitHub: [@akshay](https://github.com/akki-2004)
+  - LinkedIn: [Akshay's Profile](https://www.linkedin.com/in/tirumani-satya-akshay-bb4885284)
 
 ## 📝 Code of Conduct
 
