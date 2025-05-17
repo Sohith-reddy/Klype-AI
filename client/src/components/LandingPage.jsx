@@ -729,7 +729,7 @@ export default function LandingPage() {
                 onClick={handleShowForm}
               >
                 <span className="btn-content">
-                  <span className="btn-icon">🎯</span>
+                  <span className="btn-icon">❤️</span>
                   Join the waitlist
                 </span>
               </Button>
@@ -738,7 +738,7 @@ export default function LandingPage() {
                 className="telegram-btn px-4 py-2 rounded-pill"
               >
                 <span className="btn-content">
-                  <span className="btn-icon">✈️</span>
+                  <span className="btn-icon">📩</span>
                   Join Telegram Group
                 </span>
               </Button>
