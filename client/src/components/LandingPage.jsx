@@ -725,13 +725,22 @@ export default function LandingPage() {
             <div className="d-flex justify-content-center gap-3 mb-3 flex-wrap">
               <Button
                 variant="dark"
-                className="px-4 py-2 rounded-pill"
+                className="waitlist-btn px-4 py-2 rounded-pill"
                 onClick={handleShowForm}
               >
-                Join the waitlist
+                <span className="btn-content">
+                  <span className="btn-icon">🎯</span>
+                  Join the waitlist
+                </span>
               </Button>
-              <Button variant="dark" className="px-4 py-2 rounded-pill">
-                Join Telegram Group
+              <Button
+                variant="dark"
+                className="telegram-btn px-4 py-2 rounded-pill"
+              >
+                <span className="btn-content">
+                  <span className="btn-icon">✈️</span>
+                  Join Telegram Group
+                </span>
               </Button>
             </div>
             <p
