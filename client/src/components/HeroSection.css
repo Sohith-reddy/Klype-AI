@@ -301,6 +301,84 @@
   transition: transform 0.1s;
 }
 
+.feature-card {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(200, 0, 255, 0.2) !important;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #c800ff, #00f2ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+.feature-icon {
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.1);
+}
+
+.suggestion-item {
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background: rgba(255,255,255,0.1) !important;
+}
+
+.suggestion-icon {
+  transition: transform 0.3s ease;
+}
+
+.suggestion-item:hover .suggestion-icon {
+  transform: rotate(20deg);
+}
+
+.pricing-card {
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(200, 0, 255, 0.2);
+}
+
+.feature-list li {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.feature-icon {
+  display: inline-block;
+  min-width: 24px;
+}
+
+.gradient-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3);
+}
+
+.dark-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Add spacing between cards on mobile */
+@media (max-width: 768px) {
+  .pricing-card {
+    margin-bottom: 2rem;
+  }
+}
+
 /* Pulse animation for both buttons */
 @keyframes buttonPulse {
   0% {

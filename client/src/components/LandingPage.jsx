@@ -1,68 +1,93 @@
-import React, { useState } from 'react'
-import { Container, Nav, Navbar, Button, Row, Col, Card } from 'react-bootstrap';
-import userImage from './images/image.png';
-import userImage1 from './images/image1.png';
-import userImage2 from './images/image2.png';
-import userImage3 from './images/image3.png';
-import userImage4 from './images/image4.png';
-import userImage5 from './images/image5.png';
-import userImage6 from './images/image6.png';
-
-import './HeroSection.css'; // Optional: for custom styles
-import { FaLinkedin } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import {
+  Container,
+  Nav,
+  Navbar,
+  Button,
+  Row,
+  Col,
+  Card,
+} from "react-bootstrap";
+import userImage from "./images/image.png";
+import userImage1 from "./images/image1.png";
+import userImage2 from "./images/image2.png";
+import userImage3 from "./images/image3.png";
+import userImage4 from "./images/image4.png";
+import userImage5 from "./images/image5.png";
+import userImage6 from "./images/image6.png";
+import "./HeroSection.css";
+import { FaLinkedin } from "react-icons/fa";
+import { SiTelegram } from "react-icons/si";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import KlypeFormModal from './KlypeFormModal';
+import KlypeFormModal from "./KlypeFormModal";
+
 export default function LandingPage() {
-  const [showForm, setShowForm] = useState(false)
-  const handleShowForm = () => setShowForm(true)
-  const handleCloseForm = () => setShowForm(false)
+  const [showForm, setShowForm] = useState(false);
+  const handleShowForm = () => setShowForm(true);
+  const handleCloseForm = () => setShowForm(false);
   const users = [
-    { name: 'Daniel Lee', role: 'Content Strategist - TechCo', img: userImage },
-    { name: 'Amelia Davis', role: 'Founder - StartupBoost', img: userImage1 },
-    { name: 'Jane Smith', role: 'Content Strategist - TechCo', img: userImage2 },
-    { name: 'Jane Smith', role: 'Content Strategist - TechCo', img: userImage3 },
-    { name: 'Daniel Lee', role: 'Marketing Manager - GrowthLabs', img: userImage4 },
-    { name: 'Amelia Davis', role: 'Founder - StartupBoost', img: userImage6 },
-    { name: 'Jane Smith', role: 'Content Strategist - TechCo', img: userImage5 },
+    { name: "Daniel Lee", role: "Content Strategist - TechCo", img: userImage },
+    { name: "Amelia Davis", role: "Founder - StartupBoost", img: userImage1 },
+    {
+      name: "Jane Smith",
+      role: "Content Strategist - TechCo",
+      img: userImage2,
+    },
+    {
+      name: "Jane Smith",
+      role: "Content Strategist - TechCo",
+      img: userImage3,
+    },
+    {
+      name: "Daniel Lee",
+      role: "Marketing Manager - GrowthLabs",
+      img: userImage4,
+    },
+    { name: "Amelia Davis", role: "Founder - StartupBoost", img: userImage6 },
+    {
+      name: "Jane Smith",
+      role: "Content Strategist - TechCo",
+      img: userImage5,
+    },
   ];
-  const companies = ['Google', 'Amazon', 'Govt. of India'];
+  const companies = ["Google", "Amazon", "Govt. of India"];
   const features = [
     {
-      title: 'Personalized Content Calendar',
-      subtitle: 'Plan, organize, and add content anytime.',
-      image: '🗓️',
+      title: "Personalized Content Calendar",
+      subtitle: "Plan, organize, and add content anytime.",
+      image: "🗓️",
     },
     {
-      title: '7-Day Personalized Content & Suggestions',
-      subtitle: 'Get a tailored content plan with AI-driven recommendations',
-      suggestions: ['Suggestion', 'Suggestion', 'Suggestion'],
+      title: "7-Day Personalized Content & Suggestions",
+      subtitle: "Get a tailored content plan with AI-driven recommendations",
+      suggestions: ["Suggestion", "Suggestion", "Suggestion"],
     },
     {
-      title: 'Convert Voice Notes into Posts within 5 Seconds',
-      image: '🔊',
+      title: "Convert Voice Notes into Posts within 5 Seconds",
+      image: "🔊",
     },
     {
-      title: 'Create your own Content Workflow within minutes',
-      image: '🧩',
+      title: "Create your own Content Workflow within minutes",
+      image: "🧩",
     },
     {
-      title: 'Convert YouTube Videos into Posts within 5 Seconds',
-      image: '🎥 ➡️ 📄',
+      title: "Convert YouTube Videos into Posts within 5 Seconds",
+      image: "🎥 ➡️ 📄",
     },
   ];
   const topFeatures = [
     {
-      title: 'Dedicated country-based IP',
-      desc: 'Connect securely from anywhere in the world',
+      title: "Dedicated country-based IP",
+      desc: "Connect securely from anywhere in the world",
     },
     {
-      title: 'Seamless LinkedIn Integration',
-      desc: 'Schedule, Post as per preferences',
+      title: "Seamless LinkedIn Integration",
+      desc: "Schedule, Post as per preferences",
     },
     {
-      title: 'Global smart inbox',
-      desc: 'Manage all your communications in one place',
+      title: "Global smart inbox",
+      desc: "Manage all your communications in one place",
     },
   ];
   const pricingData = [
@@ -78,7 +103,7 @@ export default function LandingPage() {
         "Access to a 5,000+ Engagement Hooks Klype Library",
         "Increase in Inbound Inquiries by 3x",
         "Personalized Post Recommendations",
-        "Get Real-Time Analytics on Klype Dashboard"
+        "Get Real-Time Analytics on Klype Dashboard",
       ],
     },
     {
@@ -99,9 +124,9 @@ export default function LandingPage() {
         "Viral Content for style, keywords, and topics & customize as per",
         "Get Advanced Analytics on Klype Dashboard",
         "Multi-Profile Management (Manage UpTo 2 Profiles at a time)",
-        "Instant Search Assistance Ask anything, anytime — LAUNCHING SOON"
+        "Instant Search Assistance Ask anything, anytime — LAUNCHING SOON",
       ],
-    }
+    },
   ];
   const fadeIn = {
     hidden: { opacity: 0, y: 30 },
@@ -110,9 +135,9 @@ export default function LandingPage() {
       y: 0,
       transition: {
         delay: i * 0.5,
-        duration: 0.6
-      }
-    })
+        duration: 0.6,
+      },
+    }),
   };
   return (
     <>
@@ -444,7 +469,7 @@ export default function LandingPage() {
                 fontWeight: "bold",
               }}
             >
-              98.2%
+              99.2%
             </div>
           </motion.div>
         </motion.div>
@@ -453,8 +478,6 @@ export default function LandingPage() {
           4.9+ Ratings By 1.6k+ Founders
         </p>
 
-        {/* Experts From */}
-        {/* Experts From */}
         <h5
           className="text-light mb-3"
           style={{
@@ -511,72 +534,89 @@ export default function LandingPage() {
         <Container>
           <Row className="g-4">
             <Col md={6}>
-              <Card className="bg-black text-light h-100 p-4 rounded-4">
-                <Card.Body>
-                  <h5>{features[0].title}</h5>
-                  <p className="text-secondary">{features[0].subtitle}</p>
-                  <div className="display-3">{features[0].image}</div>
-                </Card.Body>
-              </Card>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Card
+                  className="bg-black text-light h-100 p-4 rounded-4 feature-card"
+                  style={{
+                    boxShadow: "0 4px 15px rgba(200, 0, 255, 0.15)",
+                    transition: "all 0.3s ease-in-out",
+                    border: "1px solid rgba(200, 0, 255, 0.1)",
+                  }}
+                >
+                  <Card.Body>
+                    <h5 className="gradient-text">{features[0].title}</h5>
+                    <p className="text-secondary">{features[0].subtitle}</p>
+                    <div className="display-3 feature-icon">
+                      {features[0].image}
+                    </div>
+                  </Card.Body>
+                </Card>
+              </motion.div>
             </Col>
 
             <Col md={6}>
-              <Card className="bg-black text-light h-100 p-4 rounded-4">
-                <Card.Body>
-                  <h5>{features[1].title}</h5>
-                  <p className="text-secondary">{features[1].subtitle}</p>
-                  {features[1].suggestions.map((sugg, idx) => (
-                    <div
-                      key={idx}
-                      className="d-flex align-items-center mb-2 px-3 py-2 rounded bg-secondary bg-opacity-25"
-                    >
-                      <span className="me-2">💡</span> {sugg}
-                    </div>
-                  ))}
-                </Card.Body>
-              </Card>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Card
+                  className="bg-black text-light h-100 p-4 rounded-4 feature-card"
+                  style={{
+                    boxShadow: "0 4px 15px rgba(0, 242, 255, 0.15)",
+                    transition: "all 0.3s ease-in-out",
+                    border: "1px solid rgba(0, 242, 255, 0.1)",
+                  }}
+                >
+                  <Card.Body>
+                    <h5 className="gradient-text">{features[1].title}</h5>
+                    <p className="text-secondary">{features[1].subtitle}</p>
+                    {features[1].suggestions.map((sugg, idx) => (
+                      <motion.div
+                        key={idx}
+                        whileHover={{ x: 5 }}
+                        className="suggestion-item d-flex align-items-center mb-2 px-3 py-2 rounded"
+                        style={{
+                          background: "rgba(255,255,255,0.05)",
+                          backdropFilter: "blur(5px)",
+                          transition: "all 0.3s ease",
+                        }}
+                      >
+                        <span className="me-2 suggestion-icon">💡</span> {sugg}
+                      </motion.div>
+                    ))}
+                  </Card.Body>
+                </Card>
+              </motion.div>
             </Col>
 
             {features.slice(2).map((feat, idx) => (
               <Col md={4} key={idx}>
-                <Card className="bg-black text-light h-100 p-4 rounded-4">
-                  <Card.Body>
-                    <h6>{feat.title}</h6>
-                    <div className="display-6 mt-3">{feat.image}</div>
-                  </Card.Body>
-                </Card>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Card
+                    className="bg-black text-light h-100 p-4 rounded-4 feature-card"
+                    style={{
+                      boxShadow: "0 4px 15px rgba(200, 0, 255, 0.1)",
+                      transition: "all 0.3s ease-in-out",
+                      border: "1px solid rgba(200, 0, 255, 0.1)",
+                    }}
+                  >
+                    <Card.Body>
+                      <h6 className="gradient-text">{feat.title}</h6>
+                      <div className="display-6 mt-3 feature-icon">
+                        {feat.image}
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </motion.div>
               </Col>
             ))}
           </Row>
-        </Container>
-      </div>
-      <div className="back bg-dark text-light py-5">
-        <Container>
-          <Row className="g-4 mb-4">
-            {topFeatures.map((feature, idx) => (
-              <Col md={4} key={idx}>
-                <Card className="bg-black text-light h-100 p-4 rounded-4 text-center">
-                  <Card.Body>
-                    <h5 className="fw-bold">{feature.title}</h5>
-                    <p className="text-secondary text-bold mb-0">
-                      {feature.desc}
-                    </p>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-
-          <Card className="bg-black text-light text-center p-5 rounded-4">
-            <Card.Body>
-              <h5 className="fw-bold">Multi-Profile Management</h5>
-              <p className="text-secondary mb-3">
-                Manage Upto 5 Profiles at a time for your Team at $9 per User
-              </p>
-              <div className="display-4 mt-4">👥👤👥</div>{" "}
-              {/* Replace with image if needed */}
-            </Card.Body>
-          </Card>
           <motion.div
             className="mt-4 px-3 py-2 mb-3 rounded-pill mx-auto text-center"
             style={{
@@ -641,12 +681,13 @@ export default function LandingPage() {
       <div className=" back bg-black text-white py-5">
         <Container>
           <h2 className="text-center text-light mb-5">Pricing & Features</h2>
-          <Row className="justify-content-center">
+          <Row className="justify-content-center g-5">
+            {" "}
             {pricingData.map((plan, index) => (
               <Col
                 key={plan.title}
                 md={5}
-                className="m-2 p-1 rounded-4"
+                className="mx-4 p-1 rounded-4 pricing-card" /* Added horizontal margin */
                 style={{
                   backgroundColor:
                     plan.title === "Premium" ? "transparent" : "#1a1a1a",
@@ -659,19 +700,21 @@ export default function LandingPage() {
                       ? "linear-gradient(135deg, #ff00ff 0%, #00ffff 100%)"
                       : "none",
                   color: plan.title === "Premium" ? "#00ffff" : "#fff",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  marginBottom: "2rem" /* Added bottom margin */,
                 }}
               >
                 <div
-                  className="bg-black p-4 rounded-4 h-100"
+                  className="bg-black p-5 rounded-4 h-100" /* Increased padding */
                   style={
                     plan.title === "Premium" ? { borderRadius: "1rem" } : {}
                   }
                 >
-                  <h4 className="text-white">{plan.title}</h4>
-                  <h3 className="fw-bold">{plan.price}</h3>
+                  <h4 className="text-white mb-3">{plan.title}</h4>
+                  <h3 className="fw-bold mb-4">{plan.price}</h3>
                   <Button
                     variant={plan.buttonStyle === "gradient" ? "light" : "dark"}
-                    className={`w-100 my-3 waitlist-btn ${
+                    className={`w-100 my-4 py-3 waitlist-btn ${
                       plan.buttonStyle === "gradient"
                         ? "text-dark fw-semibold gradient-btn"
                         : "dark-btn"
@@ -682,16 +725,19 @@ export default function LandingPage() {
                             background:
                               "linear-gradient(90deg, #ff00ff, #00ffff)",
                             border: "none",
+                            transition:
+                              "transform 0.3s ease, box-shadow 0.3s ease",
                           }
                         : {}
                     }
                   >
                     Signup for waitlist
                   </Button>
-                  <ul className="list-unstyled mt-3 text-start">
+                  <ul className="list-unstyled mt-4 text-start feature-list">
                     {plan.features.map((feature, idx) => (
-                      <li key={idx} className="mb-2">
-                        ✅ {feature}
+                      <li key={idx} className="mb-3 d-flex align-items-start">
+                        <span className="me-2 feature-icon">✅</span>
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -738,7 +784,10 @@ export default function LandingPage() {
                 className="telegram-btn px-4 py-2 rounded-pill"
               >
                 <span className="btn-content">
-                  <span className="btn-icon">📩</span>
+                  {/* <span className="btn-icon">📩</span> */}
+                  <span className="btn-icon">
+                    <SiTelegram />
+                  </span>
                   Join Telegram Group
                 </span>
               </Button>
@@ -759,32 +808,92 @@ export default function LandingPage() {
       </div>
       <footer
         className="py-5"
-        style={{ backgroundColor: "#0a0a0a", color: "#ccc" }}
+        style={{ backgroundColor: "#000000", color: "#666" }}
       >
         <Container>
           <Row>
             <Col md={4}>
-              <h4 style={{ color: "#fff" }}>Klype</h4>
-              <p>Empowering the world’s professionals to share their stories</p>
-              <div className="d-flex align-items-center mt-2">
-                <FaLinkedin size={20} />
-                <span className="ms-2">Klype</span>
+              <h2
+                style={{
+                  color: "#fff",
+                  fontSize: "2rem",
+                  marginBottom: "1rem",
+                }}
+              >
+                Klype
+              </h2>
+              <p style={{ fontSize: "1.1rem", marginBottom: "2rem" }}>
+                Empowering the world's professionals
+                <br />
+                to share their stories
+              </p>
+              <div className="social-links d-flex gap-3">
+                <Link
+                  to="#"
+                  className="text-decoration-none"
+                  style={{ color: "#666" }}
+                >
+                  <FaLinkedin size={24} />
+                </Link>
+                <Link
+                  to="#"
+                  className="text-decoration-none"
+                  style={{ color: "#666" }}
+                >
+                  Klype
+                </Link>
               </div>
             </Col>
             <Col md={4}>
-              <ul className="list-unstyled">
-                <li className="mb-2">Privacy Policy</li>
-                <li className="mb-2">Terms & Conditions</li>
-                <li className="mb-2">Blogs & Resources</li>
+              <ul className="list-unstyled" style={{ fontSize: "1.1rem" }}>
+                <li className="mb-3">
+                  <Link
+                    to="#"
+                    className="text-decoration-none"
+                    style={{ color: "#666" }}
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li className="mb-3">
+                  <Link
+                    to="#"
+                    className="text-decoration-none"
+                    style={{ color: "#666" }}
+                  >
+                    Terms & Conditions
+                  </Link>
+                </li>
+                <li className="mb-3">
+                  <Link
+                    to="#"
+                    className="text-decoration-none"
+                    style={{ color: "#666" }}
+                  >
+                    Blogs & Resources
+                  </Link>
+                </li>
               </ul>
             </Col>
             <Col md={4}>
-              <ul className="list-unstyled">
-                <li className="mb-2">
-                  <a href="#">Join our Telegram Channel</a>
+              <ul className="list-unstyled" style={{ fontSize: "1.1rem" }}>
+                <li className="mb-3">
+                  <Link
+                    to="#"
+                    className="text-decoration-none"
+                    style={{ color: "#666" }}
+                  >
+                    Join our Telegram Channel
+                  </Link>
                 </li>
-                <li className="mb-2">
-                  <a href="#">Join our Facebook Community</a>
+                <li className="mb-3">
+                  <Link
+                    to="#"
+                    className="text-decoration-none"
+                    style={{ color: "#666" }}
+                  >
+                    Join our Facebook Community
+                  </Link>
                 </li>
               </ul>
             </Col>
