@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Login</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0a0a0a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #d8caff;
+    }
+
+    form {
+      background: #1a002a;
+      padding: 40px 35px;
+      border-radius: 14px;
+      box-shadow: 0 0 20px #9b59b6aa;
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    h4 {
+      margin: 0 0 10px 0;
+      font-weight: 700;
+      font-size: 1.8rem;
+      text-align: center;
+      color: #d8caff;
+      letter-spacing: 1.2px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 12px 16px;
+      border: 2px solid #7b2ff7;
+      border-radius: 8px;
+      background: #250042;
+      color: #e1d9ff;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]::placeholder,
+    input[type="password"]::placeholder {
+      color: #bca5ff;
+    }
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border-color: #f107a3;
+      outline: none;
+      background: #320060;
+      color: #fff;
+    }
+
+    button {
+      background: linear-gradient(135deg, #7b2ff7, #f107a3);
+      border: none;
+      color: white;
+      font-weight: 700;
+      padding: 14px 0;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: linear-gradient(135deg, #f107a3, #7b2ff7);
+    }
+  </style>
+</head>
+<body>
+  <form method="POST" action="/admin/login">
+    <h4>Admin Login</h4>
+    <input type="text" name="username" placeholder="Username" required autofocus />
+    <input type="password" name="password" placeholder="Password" required />
+    <button type="submit">Login</button>
+  </form>
+</body>
+</html>

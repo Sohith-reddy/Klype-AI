@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Waitlist Dashboard</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0a0a0a;
+      color: #d8caff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 900px;
+      background: #1a002a;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #9b59b6aa;
+      padding: 30px 40px;
+    }
+
+    h2 {
+      margin: 0;
+      font-weight: 700;
+      color: #d8caff;
+      font-size: 2rem;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    form button {
+      background: linear-gradient(135deg, #7b2ff7, #f107a3);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 30px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+    form button:hover {
+      background: linear-gradient(135deg, #f107a3, #7b2ff7);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 15px #7b2ff7aa;
+    }
+    thead {
+      background: #7b2ff7;
+      color: #fff;
+      font-weight: 600;
+    }
+    thead tr {
+      border-bottom: 2px solid #f107a3;
+    }
+    th, td {
+      text-align: left;
+      padding: 14px 18px;
+    }
+    tbody tr {
+      background: #2a0050;
+      transition: background 0.3s ease;
+      cursor: default;
+    }
+    tbody tr:hover {
+      background: #51009d;
+    }
+    a {
+      color: #f107a3;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Waitlist Submissions</h2>
+      <form action="/admin/logout" method="POST">
+        <button type="submit">Logout</button>
+      </form>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>LinkedIn</th>
+          <th>Joined</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(user => { %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><a href="<%= user.linkedin %>" target="_blank">Profile</a></td>
+            <td><%= user.createdAt.toLocaleString() %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
