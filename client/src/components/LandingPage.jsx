@@ -120,46 +120,95 @@ export default function LandingPage() {
         <div className="hero-section d-flex flex-column min-vh-100 text-white text-center justify-content-between">
           {/* Navbar */}
           <motion.div variants={fadeIn}>
-            <Navbar expand="md" className="py-4 px-3 sticky-top" style={{ backgroundColor: 'radial-gradient(circle at center, #29002e, #000000)', zIndex: 1030 }}>
+            <Navbar
+              expand="md"
+              className="py-4 px-3 sticky-top"
+              style={{
+                backgroundColor:
+                  "radial-gradient(circle at center, #29002e, #000000)",
+                zIndex: 1030,
+              }}
+            >
               <Container>
-                <Navbar.Brand className="text-white fw-bold fs-4">KLYPE</Navbar.Brand>
+                <Navbar.Brand className="text-white fw-bold fs-4">
+                  KLYPE
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
+                <Navbar.Collapse
+                  id="basic-navbar-nav"
+                  className="justify-content-center"
+                >
                   <Nav className="gap-4">
-                    <Nav.Link href="#features" className="text-white fw-semibold nav-link">Features</Nav.Link>
-                    <Nav.Link href="#how-it-works" className="text-white nav-link">How it works</Nav.Link>
-                    <Nav.Link href="#pricing" className="text-white nav-link">Pricing</Nav.Link>
-                    <Nav.Link href="#testimonials" className="text-white nav-link">Testimonials</Nav.Link>
-                    <Nav.Link href="#faq" className="text-white nav-link">FAQ</Nav.Link>
+                    <Nav.Link
+                      href="#features"
+                      className="text-white fw-semibold nav-link"
+                    >
+                      Features
+                    </Nav.Link>
+                    <Nav.Link
+                      href="#how-it-works"
+                      className="text-white nav-link"
+                    >
+                      How it works
+                    </Nav.Link>
+                    <Nav.Link href="#pricing" className="text-white nav-link">
+                      Pricing
+                    </Nav.Link>
+                    <Nav.Link
+                      href="#testimonials"
+                      className="text-white nav-link"
+                    >
+                      Testimonials
+                    </Nav.Link>
+                    <Nav.Link href="#faq" className="text-white nav-link">
+                      FAQ
+                    </Nav.Link>
                   </Nav>
                 </Navbar.Collapse>
-                <Button variant="dark" className="rounded-pill px-4" onClick={handleShowForm}>Sign in</Button>
+                <Button
+                  variant="dark"
+                  className="rounded-pill px-4"
+                  onClick={handleShowForm}
+                >
+                  Sign in
+                </Button>
               </Container>
             </Navbar>
           </motion.div>
 
           {/* Main Content */}
-          <div className="d-flex flex-column align-items-center justify-content-center text-center" style={{ minHeight: '50vh' }}>
-        <motion.h1
-          className="display-5 fw-bold text-white"
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-        style={{
-            background: 'linear-gradient(to right, #ffffff, #888888)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            fontWeight: 700,
-            fontSize: '2.5rem'
-          }}
-        >
-          KLYPE turns Founder insight into Pipeline-Building Content<br />
-          without sounding like AI or wasting $1000 a month.
-        </motion.h1>
+          <div
+            className="d-flex flex-column align-items-center justify-content-center text-center"
+            style={{ minHeight: "50vh" }}
+          >
+            <motion.h1
+              className="display-5 fw-bold text-white"
+              initial="hidden"
+              animate="visible"
+              variants={fadeIn}
+              style={{
+                background: "linear-gradient(to right, #ffffff, #888888)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                fontWeight: 700,
+                fontSize: "2.5rem",
+              }}
+            >
+              KLYPE turns Founder insight into Pipeline-Building Content
+              <br />
+              without sounding like AI or wasting $1000 a month.
+            </motion.h1>
 
-            <motion.p className="text-secondary fs-5 mt-3" variants={fadeIn} initial="hidden" animate="visible">
-              Your ideas deserve better than recycled AI fluff.<br />
-              KLYPE turns real insight into content that drives DMs, not dopamine.
+            <motion.p
+              className="text-secondary fs-5 mt-3"
+              variants={fadeIn}
+              initial="hidden"
+              animate="visible"
+            >
+              Your ideas deserve better than recycled AI fluff.
+              <br />
+              KLYPE turns real insight into content that drives DMs, not
+              dopamine.
             </motion.p>
 
             <motion.div
@@ -170,59 +219,86 @@ export default function LandingPage() {
             >
               <Button
                 variant="light"
-                className="rounded-pill px-5 py-2 fw-semibold"
+                className="get-started-btn rounded-pill px-5 py-2 fw-semibold"
                 style={{
-                  border: '1.5px solid #ccc',
-                  background: 'transparent',
-                  color: '#ccc',
-                  fontSize: '1.1rem'
+                  border: "1.5px solid #ccc",
+                  background: "transparent",
+                  color: "#ccc",
+                  fontSize: "1.1rem",
+                  position: "relative",
+                  overflow: "hidden",
+                  transition: "all 0.3s ease-in-out",
+                  zIndex: 1,
                 }}
                 onClick={handleShowForm}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-3px)";
+                  e.currentTarget.style.boxShadow =
+                    "0 5px 15px rgba(200, 0, 255, 0.3)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
               >
-                🚀 Get Started with Klype
+                <span className="rocket-icon" role="img" aria-label="rocket">
+                  🚀
+                </span>
+                <span className="button-text">Get Started with Klype</span>
               </Button>
             </motion.div>
-
           </div>
-
 
           {/* Stats Section */}
           <Container className="text-center pb-5">
             <motion.div
               className="mt-4 px-3 py-2 rounded-pill mx-auto text-center"
               style={{
-                maxWidth: '40%',
-                background: 'transparent',
-                color: 'transparent',
-                fontSize: '0.9rem',
-                padding: '0.6rem 1.2rem',
-                textAlign: 'center',
-                border: '2px solid transparent',
-                backgroundImage: 'linear-gradient(#000, #000), linear-gradient(to right, #c800ff, #00f2ff)',
-                backgroundOrigin: 'border-box',
-                backgroundClip: 'padding-box, border-box',
-                WebkitBackgroundClip: 'padding-box, border-box',
-                WebkitTextFillColor: 'transparent',
-                backgroundSize: '100% 100%'
+                maxWidth: "40%",
+                background: "transparent",
+                color: "transparent",
+                fontSize: "0.9rem",
+                padding: "0.6rem 1.2rem",
+                textAlign: "center",
+                border: "2px solid transparent",
+                backgroundImage:
+                  "linear-gradient(#000, #000), linear-gradient(to right, #c800ff, #00f2ff)",
+                backgroundOrigin: "border-box",
+                backgroundClip: "padding-box, border-box",
+                WebkitBackgroundClip: "padding-box, border-box",
+                WebkitTextFillColor: "transparent",
+                backgroundSize: "100% 100%",
               }}
               variants={fadeIn}
               initial="hidden"
               animate="visible"
             >
-              <span style={{
-                background: 'linear-gradient(to right, #c800ff, #00f2ff)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent'
-              }}>
-                300x performance compared to generic, low-effort AI-generated content.
+              <span
+                style={{
+                  background: "linear-gradient(to right, #c800ff, #00f2ff)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                300x performance compared to generic, low-effort AI-generated
+                content.
               </span>
             </motion.div>
 
             <Row className="mt-4">
               {[
-                { count: "1,000+", text: "hours of strategic content creation and optimization." },
-                { count: "10,000+", text: "viral posts crafted to maximize reach and engagement." },
-                { count: "900+", text: "ROI-focused posts designed specifically to drive measurable business results." }
+                {
+                  count: "1,000+",
+                  text: "hours of strategic content creation and optimization.",
+                },
+                {
+                  count: "10,000+",
+                  text: "viral posts crafted to maximize reach and engagement.",
+                },
+                {
+                  count: "900+",
+                  text: "ROI-focused posts designed specifically to drive measurable business results.",
+                },
               ].map((item, index) => (
                 <Col md={4} className="mb-4" key={index}>
                   <motion.div
@@ -242,175 +318,186 @@ export default function LandingPage() {
       </div>
       <div className=" back   trusted-section py-5 text-white text-center">
         <Container>
-          
-    <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeIn}
-        style={{ minHeight: '50vh' }}
-        className="d-flex flex-column justify-content-center align-items-center text-center"
-      >
-        <h1 className=" fw-semibold text-secondary mb-5" style={{ letterSpacing: '1px' }}>
-          <span className='text-white'> Why </span> Klype?
-        </h1>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            style={{ minHeight: "50vh" }}
+            className="d-flex flex-column justify-content-center align-items-center text-center"
+          >
+            <h1
+              className=" fw-semibold text-secondary mb-5"
+              style={{ letterSpacing: "1px" }}
+            >
+              <span className="text-white"> Why </span> Klype?
+            </h1>
             <h2
-          className="fw-bold mb-2"
-          style={{
-            fontSize: '2rem',
-            fontFamily: 'Inter, sans-serif',
-            background: 'linear-gradient(to right, #ffffff, #888888)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
-          }}
-        >
-          We’ve Helped Professionals At Top Companies Stay Visible & Get<br />
-          Noticed – Now It’s Your Turn
-        </h2>
-        <p
-          className="text-secondary mb-4"
-          style={{ fontSize: '1.1rem', maxWidth: '700px' }}
-        >
-          KLYPE converts raw founder experience into content that compounds authority, drives leads,
-          and actually sounds like you.
-        </p>
-      </motion.div>
+              className="fw-bold mb-2"
+              style={{
+                fontSize: "2rem",
+                fontFamily: "Inter, sans-serif",
+                background: "linear-gradient(to right, #ffffff, #888888)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              We’ve Helped Professionals At Top Companies Stay Visible & Get
+              <br />
+              Noticed – Now It’s Your Turn
+            </h2>
+            <p
+              className="text-secondary mb-4"
+              style={{ fontSize: "1.1rem", maxWidth: "700px" }}
+            >
+              KLYPE converts raw founder experience into content that compounds
+              authority, drives leads, and actually sounds like you.
+            </p>
+          </motion.div>
 
-
-
-          <h4 className="fw-semibold mb-5"    
-          style={{
-            fontSize: '1.5rem',
-            fontFamily: 'Inter, sans-serif',
-            background: 'linear-gradient(to right, #ffffff, #888888)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
-          }}>Trusted BY 100+ LinkedIn Voices</h4>
+          <h4
+            className="fw-semibold mb-5"
+            style={{
+              fontSize: "1.5rem",
+              fontFamily: "Inter, sans-serif",
+              background: "linear-gradient(to right, #ffffff, #888888)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Trusted BY 100+ LinkedIn Voices
+          </h4>
 
           {/* Scrolling avatars */}
-         <div
-  className="marquee-container mt-5 mb-4 d-flex justify-content-center align-items-center text-center"
-  style={{ minHeight: '30vh' }}
->
-  <div className="marquee">
-    {users.concat(users).map((user, index) => (
-      <div className="profile text-center mx-3" key={index}>
-        <img src={user.img} alt={user.name} className="avatar mb-2" />
-        <div className="fw-semibold">{user.name}</div>
-        <div
-  className="text-secondary fw-medium"
-  style={{ fontSize: '0.9rem', color: '#aaa' }}
->
-  {user.role}
-</div>
-
-      </div>
-    ))}
-  </div>
-</div>
-
+          <div
+            className="marquee-container mt-5 mb-4 d-flex justify-content-center align-items-center text-center"
+            style={{ minHeight: "30vh" }}
+          >
+            <div className="marquee">
+              {users.concat(users).map((user, index) => (
+                <div className="profile text-center mx-3" key={index}>
+                  <img src={user.img} alt={user.name} className="avatar mb-2" />
+                  <div className="fw-semibold">{user.name}</div>
+                  <div
+                    className="text-secondary fw-medium"
+                    style={{ fontSize: "0.9rem", color: "#aaa" }}
+                  >
+                    {user.role}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </Container>
       </div>
       {/* Animated Rating Circle */}
-<div className="back text-center text-white bg-dark py-5" style={{minHeight:'30vh'}}>
-  <motion.div
-    className="d-flex justify-content-center mb-3"
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.8 }}
-  >
-    <motion.div
-      initial={{ strokeDashoffset: 440 }}
-      whileInView={{ strokeDashoffset: 58.81 }}
-      transition={{ duration: 2 }}
-      style={{ width: 180, height: 180, position: 'relative' }}
-    >
-      <svg width="180" height="180">
-        <circle
-          cx="90"
-          cy="90"
-          r="78"
-          stroke="#333"
-          strokeWidth="10"
-          fill="none"
-        />
-        <motion.circle
-          cx="90"
-          cy="90"
-          r="78"
-          stroke="#D100D1"
-          strokeWidth="10"
-          fill="none"
-          strokeDasharray="560.6"
-          strokeDashoffset="510.6"
-          whileInView={{ strokeDashoffset: 87.72 }}
-          transition={{ duration: 2, ease: 'easeOut' }}
-          style={{ transform: 'rotate(-90deg)', transformOrigin: 'center' }}
-        />
-      </svg>
       <div
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          fontSize: '2rem',
-          fontWeight: 'bold'
-        }}
+        className="back text-center text-white bg-dark py-5"
+        style={{ minHeight: "30vh" }}
       >
-        98.2%
+        <motion.div
+          className="d-flex justify-content-center mb-3"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.div
+            initial={{ strokeDashoffset: 440 }}
+            whileInView={{ strokeDashoffset: 58.81 }}
+            transition={{ duration: 2 }}
+            style={{ width: 180, height: 180, position: "relative" }}
+          >
+            <svg width="180" height="180">
+              <circle
+                cx="90"
+                cy="90"
+                r="78"
+                stroke="#333"
+                strokeWidth="10"
+                fill="none"
+              />
+              <motion.circle
+                cx="90"
+                cy="90"
+                r="78"
+                stroke="#D100D1"
+                strokeWidth="10"
+                fill="none"
+                strokeDasharray="560.6"
+                strokeDashoffset="510.6"
+                whileInView={{ strokeDashoffset: 87.72 }}
+                transition={{ duration: 2, ease: "easeOut" }}
+                style={{
+                  transform: "rotate(-90deg)",
+                  transformOrigin: "center",
+                }}
+              />
+            </svg>
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                fontSize: "2rem",
+                fontWeight: "bold",
+              }}
+            >
+              98.2%
+            </div>
+          </motion.div>
+        </motion.div>
+
+        <p className="text-light mb-4" style={{ fontSize: "1.2rem" }}>
+          4.9+ Ratings By 1.6k+ Founders
+        </p>
+
+        {/* Experts From */}
+        {/* Experts From */}
+        <h5
+          className="text-light mb-3"
+          style={{
+            fontSize: "2rem",
+            fontFamily: "Inter, sans-serif",
+            background: "linear-gradient(to right, #ffffff, #888888)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          Experts from
+        </h5>
+        <br />
+
+        <div
+          className="d-grid gap-4"
+          style={{
+            gridTemplateColumns: "repeat(3, auto)",
+            justifyContent: "center",
+            maxWidth: "600px",
+            margin: "0 auto",
+            color: "white",
+          }}
+        >
+          {[
+            { name: "Google", icon: "bi-google" },
+            { name: "Amazon", icon: "bi-amazon" },
+            { name: "Govt. of India", icon: "bi-bank2" },
+            { name: "Microsoft", icon: "bi-microsoft" }, // added
+            { name: "Accenture", icon: "bi-briefcase" }, // example icon
+            { name: "Govt. of India", icon: "bi-bank2" },
+          ].map((company, idx) => (
+            <div
+              key={idx}
+              className="d-flex align-items-center gap-2"
+              style={{ fontSize: "1.4rem" }}
+            >
+              <i className={`bi ${company.icon}`} />
+              <span style={{ fontSize: "1.2rem" }}>{company.name}</span>
+            </div>
+          ))}
+        </div>
       </div>
-    </motion.div>
-  </motion.div>
-
-  <p className="text-light mb-4" style={{ fontSize: '1.2rem' }}>
-    4.9+ Ratings By 1.6k+ Founders
-  </p>
-
-  {/* Experts From */}
-  {/* Experts From */}
-<h5 className="text-light mb-3" style={{
-            fontSize: '2rem',
-            fontFamily: 'Inter, sans-serif',
-            background: 'linear-gradient(to right, #ffffff, #888888)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
-          }}>
-  Experts from
-</h5>
-<br />
-
-<div
-  className="d-grid gap-4"
-  style={{
-    gridTemplateColumns: 'repeat(3, auto)',
-    justifyContent: 'center',
-    maxWidth: '600px',
-    margin: '0 auto',
-    color: 'white',
-  }}
->
-  {[
-    { name: "Google", icon: "bi-google" },
-    { name: "Amazon", icon: "bi-amazon" },
-    { name: "Govt. of India", icon: "bi-bank2" },
-   { name: "Microsoft", icon: "bi-microsoft" },      // added
-    { name: "Accenture", icon: "bi-briefcase" },      // example icon
-      { name: "Govt. of India", icon: "bi-bank2" },
-  ].map((company, idx) => (
-    <div
-      key={idx}
-      className="d-flex align-items-center gap-2"
-      style={{ fontSize: '1.4rem' }}
-    >
-      <i className={`bi ${company.icon}`} />
-      <span style={{ fontSize: '1.2rem' }}>{company.name}</span>
-    </div>
-  ))}
-</div>
-
-</div>
 
       <div className=" back bg-dark text-light py-5 text-center">
         <h2>
@@ -493,29 +580,32 @@ export default function LandingPage() {
           <motion.div
             className="mt-4 px-3 py-2 mb-3 rounded-pill mx-auto text-center"
             style={{
-              maxWidth: '30%',
-              background: 'transparent',
-              color: 'transparent',
-              fontSize: '1rem',
-              padding: '0.6rem 1.2rem',
-              textAlign: 'center',
-              border: '2px solid transparent',
-              backgroundImage: 'linear-gradient(#000, #000), linear-gradient(to right, #c800ff, #00f2ff)',
-              backgroundOrigin: 'border-box',
-              backgroundClip: 'padding-box, border-box',
-              WebkitBackgroundClip: 'padding-box, border-box',
-              WebkitTextFillColor: 'transparent',
-              backgroundSize: '100% 100%'
+              maxWidth: "30%",
+              background: "transparent",
+              color: "transparent",
+              fontSize: "1rem",
+              padding: "0.6rem 1.2rem",
+              textAlign: "center",
+              border: "2px solid transparent",
+              backgroundImage:
+                "linear-gradient(#000, #000), linear-gradient(to right, #c800ff, #00f2ff)",
+              backgroundOrigin: "border-box",
+              backgroundClip: "padding-box, border-box",
+              WebkitBackgroundClip: "padding-box, border-box",
+              WebkitTextFillColor: "transparent",
+              backgroundSize: "100% 100%",
             }}
             variants={fadeIn}
             initial="hidden"
             animate="visible"
           >
-            <span style={{
-              background: 'linear-gradient(to right, #c800ff, #00f2ff)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
-            }}>
+            <span
+              style={{
+                background: "linear-gradient(to right, #c800ff, #00f2ff)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
               Zero AI “Stench” = No Shadowban Risk
             </span>
           </motion.div>
@@ -524,7 +614,6 @@ export default function LandingPage() {
       <div className="back bg-black text-center text-light py-5">
         <Container>
           {/* Gradient badge */}
-
 
           {/* Heading */}
           <h2 className="text-secondary  fw-normal mb-3">
@@ -582,17 +671,18 @@ export default function LandingPage() {
                   <h3 className="fw-bold">{plan.price}</h3>
                   <Button
                     variant={plan.buttonStyle === "gradient" ? "light" : "dark"}
-                    className={`w-100 my-3 waitlist-btn ${plan.buttonStyle === "gradient"
+                    className={`w-100 my-3 waitlist-btn ${
+                      plan.buttonStyle === "gradient"
                         ? "text-dark fw-semibold gradient-btn"
                         : "dark-btn"
-                      }`}
+                    }`}
                     style={
                       plan.buttonStyle === "gradient"
                         ? {
-                          background:
-                            "linear-gradient(90deg, #ff00ff, #00ffff)",
-                          border: "none",
-                        }
+                            background:
+                              "linear-gradient(90deg, #ff00ff, #00ffff)",
+                            border: "none",
+                          }
                         : {}
                     }
                   >
