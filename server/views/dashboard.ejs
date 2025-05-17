@@ -16,7 +16,7 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding: 40px 20px;
+      padding: 40px 20px 60px; /* added bottom padding */
     }
     .container {
       width: 100%;
@@ -50,15 +50,17 @@
       font-weight: 600;
       cursor: pointer;
       font-size: 0.9rem;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
     form button:hover {
       background: linear-gradient(135deg, #f107a3, #7b2ff7);
+      transform: scale(1.05);
     }
 
     table {
       width: 100%;
-      border-collapse: collapse;
+      border-collapse: separate; /* changed from collapse */
+      border-spacing: 0;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 0 15px #7b2ff7aa;
