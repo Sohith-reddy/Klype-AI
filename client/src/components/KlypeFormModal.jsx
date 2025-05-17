@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import axios from "axios";
+import "./KlypeFormModal.css";
 
 export default function KlypeFormModal({ show, handleClose }) {
   const [submitting, setSubmitting] = useState(false);
@@ -17,7 +18,7 @@ export default function KlypeFormModal({ show, handleClose }) {
 
     try {
       const response = await axios.post(
-        process.env.REACT_APP_API_URL || "http://localhost:3001/api/waitlist",
+         "http://localhost:3001/api/waitlist",
         data
       );
       if (response.status === 200) {
@@ -83,26 +84,36 @@ export default function KlypeFormModal({ show, handleClose }) {
               ✕
             </Button>
           </div>
-
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="name">
-              <Form.Control
-                name="name"
-                id="name"
-                type="text"
-                placeholder="e.g. John Doe"
-                className="bg-dark text-white border-0 rounded-3 px-3 py-2"
-                required
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="linkedinUrl">
+            <Form.Group className="mb-4" controlId="linkedinUrl">
               <Form.Control
                 name="linkedinUrl"
                 id="linkedinUrl"
                 type="url"
-                placeholder="e.g. https://linkedin.com/in/johnwick"
-                className="bg-dark text-white border-0 rounded-3 px-3 py-2"
+                placeholder="LinkedIn URL"
+                className="form-input text-white border-0 rounded-3 px-3 py-3"
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.05)",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                }}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-4" controlId="companyName">
+              <Form.Control
+                name="companyName"
+                type="text"
+                placeholder="Company Name"
+                className="form-input text-white border-0 rounded-3 px-3 py-3"
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.05)",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                }}
                 required
               />
             </Form.Group>
@@ -110,18 +121,45 @@ export default function KlypeFormModal({ show, handleClose }) {
             <Form.Group className="mb-4" controlId="email">
               <Form.Control
                 name="email"
-                id="email"
                 type="email"
-                placeholder="e.g. john@example.com"
-                className="bg-dark text-white border-0 rounded-3 px-3 py-2"
+                placeholder="Email"
+                className="form-input text-white border-0 rounded-3 px-3 py-3"
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.05)",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                }}
                 required
               />
             </Form.Group>
+
+            <Form.Group className="mb-4" controlId="mobile">
+              <Form.Control
+                name="mobile"
+                type="tel"
+                placeholder="Mobile Number"
+                className="form-input text-white border-0 rounded-3 px-3 py-3"
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.05)",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                }}
+                required
+              />
+            </Form.Group>
+
             <Button
               variant="dark"
               type="submit"
-              className="w-100 py-2 fw-bold rounded-3"
-              style={{ backgroundColor: "#222", borderColor: "#222" }}
+              className="w-100 py-3 fw-medium rounded-3"
+              style={{
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                border: "none",
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+              }}
               disabled={submitting}
             >
               {submitting ? "Submitting..." : "Sign up"}
