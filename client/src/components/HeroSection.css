@@ -1,20 +1,49 @@
-.hero-section {
-  background: radial-gradient(circle at center, #29002e, #000000);
+
+body {
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(26, 0, 31, 0.9) 0%,
+      rgba(14, 0, 16, 0.7) 40%,
+      transparent 70%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(26, 0, 31, 0.9) 0%,
+      rgba(14, 0, 16, 0.7) 40%,
+      transparent 70%
+    ),
+    radial-gradient(
+      circle at center,
+      rgba(50, 0, 60, 0.06) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 1),
+      rgba(10, 0, 15, 0.95)
+    );
+  background-repeat: no-repeat;
+  background-size: 100% 60%, 100% 60%, cover, cover;
+  background-position: top center, bottom center, center center, center center;
+  color: white;
 }
-.trusted-section {
-  background: radial-gradient(circle at center, #29002e, #000000);
-}
+
+
+
 
 .marquee-container {
   overflow: hidden;
   width: 100%;
   position: relative;
 }
-.back{
 
-  background: radial-gradient(circle at center, #29002e, #000000);
-
+.btn-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .marquee {
   display: flex;
   gap: 3rem;
