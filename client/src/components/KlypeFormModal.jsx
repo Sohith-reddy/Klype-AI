@@ -1,10 +1,10 @@
 // KlypeFormModal.js
-import React from "react";
+import React,{useState} from "react";
 import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import axios from "axios";
 
 export default function KlypeFormModal({ show, handleClose }) {
-  const [submitting, setSubmitting] = React.useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
