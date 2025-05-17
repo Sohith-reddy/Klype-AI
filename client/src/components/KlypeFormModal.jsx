@@ -1,4 +1,4 @@
-//KlypeFormModal.jsx
+// KlypeFormModal.jsx
 import React, { useState } from "react";
 import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import axios from "axios";
@@ -18,7 +18,7 @@ export default function KlypeFormModal({ show, handleClose }) {
 
     try {
       const response = await axios.post(
-         "http://localhost:3001/api/waitlist",
+        "http://localhost:3001/api/waitlist",
         data
       );
       if (response.status === 200) {
@@ -85,28 +85,11 @@ export default function KlypeFormModal({ show, handleClose }) {
             </Button>
           </div>
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-4" controlId="linkedinUrl">
+            <Form.Group className="mb-4" controlId="name">
               <Form.Control
-                name="linkedinUrl"
-                id="linkedinUrl"
-                type="url"
-                placeholder="LinkedIn URL"
-                className="form-input text-white border-0 rounded-3 px-3 py-3"
-                style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.05)",
-                  backdropFilter: "blur(10px)",
-                  WebkitBackdropFilter: "blur(10px)",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                }}
-                required
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-4" controlId="companyName">
-              <Form.Control
-                name="companyName"
+                name="name"
                 type="text"
-                placeholder="Company Name"
+                placeholder="Name"
                 className="form-input text-white border-0 rounded-3 px-3 py-3"
                 style={{
                   backgroundColor: "rgba(255, 255, 255, 0.05)",
@@ -134,11 +117,11 @@ export default function KlypeFormModal({ show, handleClose }) {
               />
             </Form.Group>
 
-            <Form.Group className="mb-4" controlId="mobile">
+            <Form.Group className="mb-4" controlId="linkedinUrl">
               <Form.Control
-                name="mobile"
-                type="tel"
-                placeholder="Mobile Number"
+                name="linkedinUrl"
+                type="url"
+                placeholder="LinkedIn URL"
                 className="form-input text-white border-0 rounded-3 px-3 py-3"
                 style={{
                   backgroundColor: "rgba(255, 255, 255, 0.05)",
@@ -162,7 +145,7 @@ export default function KlypeFormModal({ show, handleClose }) {
               }}
               disabled={submitting}
             >
-              {submitting ? "Submitting..." : "Sign up"}
+              {submitting ? "Submitting..." : "Join the waitlist!"}
             </Button>
           </Form>
         </Col>

@@ -15,6 +15,8 @@ import userImage3 from "./images/image3.png";
 import userImage4 from "./images/image4.png";
 import userImage5 from "./images/image5.png";
 import userImage6 from "./images/image6.png";
+import { Link as ScrollLink } from "react-scroll";
+
 import "./HeroSection.css";
 import { FaLinkedin } from "react-icons/fa";
 import { SiTelegram } from "react-icons/si";
@@ -26,6 +28,7 @@ export default function LandingPage() {
   const [showForm, setShowForm] = useState(false);
   const handleShowForm = () => setShowForm(true);
   const handleCloseForm = () => setShowForm(false);
+  const [selectedPlan, setSelectedPlan] = useState(null);
   const users = [
     { name: "Daniel Lee", role: "Content Strategist - TechCo", img: userImage },
     { name: "Amelia Davis", role: "Founder - StartupBoost", img: userImage1 },
@@ -139,72 +142,94 @@ export default function LandingPage() {
       },
     }),
   };
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  };
   return (
     <>
       <div className="back">
         <div className="hero-section d-flex flex-column min-vh-100 text-white text-center justify-content-between">
           {/* Navbar */}
           <motion.div variants={fadeIn}>
-            <Navbar
-              expand="md"
-              className="py-4 px-3 sticky-top"
-              style={{
-                backgroundColor:
-                  "radial-gradient(circle at center, #29002e, #000000)",
-                zIndex: 1030,
-              }}
-            >
-              <Container>
-                <Navbar.Brand className="text-white fw-bold fs-4">
-                  KLYPE
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse
-                  id="basic-navbar-nav"
-                  className="justify-content-center"
-                >
-                  <Nav className="gap-4">
-                    <Nav.Link
-                      href="#features"
-                      className="text-white fw-semibold nav-link"
-                    >
-                      Features
-                    </Nav.Link>
-                    <Nav.Link
-                      href="#how-it-works"
-                      className="text-white nav-link"
-                    >
-                      How it works
-                    </Nav.Link>
-                    <Nav.Link href="#pricing" className="text-white nav-link">
-                      Pricing
-                    </Nav.Link>
-                    <Nav.Link
-                      href="#testimonials"
-                      className="text-white nav-link"
-                    >
-                      Testimonials
-                    </Nav.Link>
-                    <Nav.Link href="#faq" className="text-white nav-link">
-                      FAQ
-                    </Nav.Link>
-                  </Nav>
-                </Navbar.Collapse>
-                <Button
-                  variant="dark"
-                  className="rounded-pill px-4"
-                  onClick={handleShowForm}
-                >
-                  Sign in
-                </Button>
-              </Container>
-            </Navbar>
+          <Navbar
+  expand="md"
+  className="py-4 px-3 sticky-top"
+  style={{
+    backgroundColor: "radial-gradient(circle at center, #29002e, #000000)",
+    zIndex: 1030,
+  }}
+>
+  <Container>
+    <Navbar.Brand className="text-white fw-bold fs-4"   style={{ cursor: "pointer" }}>KLYPE</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
+      <Nav className="gap-4">
+        <ScrollLink
+          to="features"
+          smooth={true}
+          duration={600}
+          offset={-70}
+          className="nav-link text-white fw-semibold"
+          style={{ cursor: "pointer" }}
+        >
+          Features
+        </ScrollLink>
+        <ScrollLink
+          to="features"
+          smooth={true}
+          duration={600}
+          offset={-70}
+          className="nav-link text-white"
+          style={{ cursor: "pointer" }}
+        >
+          How it works
+        </ScrollLink>
+        <ScrollLink
+          to="pricing"
+          smooth={true}
+          duration={600}
+          offset={-70}
+          className="nav-link text-white"
+          style={{ cursor: "pointer" }}
+        >
+          Pricing
+        </ScrollLink>
+        <ScrollLink
+          to="testimonials"
+          smooth={true}
+          duration={600}
+          offset={-70}
+          className="nav-link text-white"
+          style={{ cursor: "pointer" }}
+        >
+          Testimonials
+        </ScrollLink>
+        <ScrollLink
+          to="faq"
+          smooth={true}
+          duration={600}
+          offset={-70}
+          className="nav-link text-white"
+          style={{ cursor: "pointer" }}
+        >
+          FAQ
+        </ScrollLink>
+      </Nav>
+    </Navbar.Collapse>
+    <Button variant="dark" className="rounded-pill px-4" onClick={handleShowForm}>
+      Sign in
+    </Button>
+  </Container>
+</Navbar>
+
           </motion.div>
 
           {/* Main Content */}
           <div
             className="d-flex flex-column align-items-center justify-content-center text-center"
-            style={{ minHeight: "50vh" }}
+            style={{ minHeight: "50vh" }}  
+
           >
             <motion.h1
               className="display-5 fw-bold text-white"
@@ -417,7 +442,7 @@ export default function LandingPage() {
       </div>
       {/* Animated Rating Circle */}
       <div
-        className="back text-center text-white bg-dark py-5"
+        className="back text-center text-white  py-5"
         style={{ minHeight: "30vh" }}
       >
         <motion.div
@@ -522,290 +547,507 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <div className=" back bg-dark text-light py-5 text-center">
-        <h2>
-          How <span className="text-white">Klype</span>{" "}
-          <span className="text-secondary" style={{ fontWeight: 700 }}>
-            works?
-          </span>
-        </h2>
-        <p className="mb-5">All Smart Features you need in one place</p>
+ <div className="back py-5 text-center" id="features" style={{ color: "#ccc" }}>
+  <motion.h2
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    viewport={{ once: true }}
+    className="mb-5"
+  >
+    How <span style={{ color: "#fff" }}>Klype</span>{" "}
+    <span style={{ color: "#b300b3", fontWeight: 700 }}>works?</span>
+    <br />
+    <p
+      className="fs-5 mx-auto"
+      style={{
+        maxWidth: "550px",
+        fontFamily: "Inter, sans-serif",
+        background: "linear-gradient(to right, #8f8f8f, #aaaaaa)",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+      }}
+    >
+      All Smart Features you need in one place
+    </p>
+  </motion.h2>
 
-        <Container>
-          <Row className="g-4">
-            <Col md={6}>
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Card
-                  className="bg-black text-light h-100 p-4 rounded-4 feature-card"
-                  style={{
-                    boxShadow: "0 4px 15px rgba(200, 0, 255, 0.15)",
-                    transition: "all 0.3s ease-in-out",
-                    border: "1px solid rgba(200, 0, 255, 0.1)",
-                  }}
-                >
-                  <Card.Body>
-                    <h5 className="gradient-text">{features[0].title}</h5>
-                    <p className="text-secondary">{features[0].subtitle}</p>
-                    <div className="display-3 feature-icon">
-                      {features[0].image}
-                    </div>
-                  </Card.Body>
-                </Card>
-              </motion.div>
-            </Col>
-
-            <Col md={6}>
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Card
-                  className="bg-black text-light h-100 p-4 rounded-4 feature-card"
-                  style={{
-                    boxShadow: "0 4px 15px rgba(0, 242, 255, 0.15)",
-                    transition: "all 0.3s ease-in-out",
-                    border: "1px solid rgba(0, 242, 255, 0.1)",
-                  }}
-                >
-                  <Card.Body>
-                    <h5 className="gradient-text">{features[1].title}</h5>
-                    <p className="text-secondary">{features[1].subtitle}</p>
-                    {features[1].suggestions.map((sugg, idx) => (
-                      <motion.div
-                        key={idx}
-                        whileHover={{ x: 5 }}
-                        className="suggestion-item d-flex align-items-center mb-2 px-3 py-2 rounded"
-                        style={{
-                          background: "rgba(255,255,255,0.05)",
-                          backdropFilter: "blur(5px)",
-                          transition: "all 0.3s ease",
-                        }}
-                      >
-                        <span className="me-2 suggestion-icon">💡</span> {sugg}
-                      </motion.div>
-                    ))}
-                  </Card.Body>
-                </Card>
-              </motion.div>
-            </Col>
-
-            {features.slice(2).map((feat, idx) => (
-              <Col md={4} key={idx}>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Card
-                    className="bg-black text-light h-100 p-4 rounded-4 feature-card"
-                    style={{
-                      boxShadow: "0 4px 15px rgba(200, 0, 255, 0.1)",
-                      transition: "all 0.3s ease-in-out",
-                      border: "1px solid rgba(200, 0, 255, 0.1)",
-                    }}
-                  >
-                    <Card.Body>
-                      <h6 className="gradient-text">{feat.title}</h6>
-                      <div className="display-6 mt-3 feature-icon">
-                        {feat.image}
-                      </div>
-                    </Card.Body>
-                  </Card>
-                </motion.div>
-              </Col>
-            ))}
-          </Row>
+  <Container>
+    {/* First features row */}
+    <Row className="g-4 justify-content-center mb-5">
+      {features.slice(0, 2).map((feat, idx) => (
+        <Col md={6} key={idx}>
           <motion.div
-            className="mt-4 px-3 py-2 mb-3 rounded-pill mx-auto text-center"
-            style={{
-              maxWidth: "30%",
-              background: "transparent",
-              color: "transparent",
-              fontSize: "1rem",
-              padding: "0.6rem 1.2rem",
-              textAlign: "center",
-              border: "2px solid transparent",
-              backgroundImage:
-                "linear-gradient(#000, #000), linear-gradient(to right, #c800ff, #00f2ff)",
-              backgroundOrigin: "border-box",
-              backgroundClip: "padding-box, border-box",
-              WebkitBackgroundClip: "padding-box, border-box",
-              WebkitTextFillColor: "transparent",
-              backgroundSize: "100% 100%",
-            }}
-            variants={fadeIn}
+            whileHover={{ scale: 1.03 }}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            variants={fadeInUp}
+            viewport={{ once: true }}
+            className="h-100"
           >
-            <span
+            <Card
+              className="bg-black text-light h-100 p-4 rounded-4 feature-card"
               style={{
-                background: "linear-gradient(to right, #c800ff, #00f2ff)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
+                color: "#eee",
+                boxShadow:
+                  idx === 0
+                    ? "0 4px 15px rgba(200, 0, 255, 0.15)"
+                    : "0 4px 15px rgba(0, 242, 255, 0.15)",
+                border:
+                  idx === 0
+                    ? "1px solid rgba(200, 0, 255, 0.1)"
+                    : "1px solid rgba(0, 242, 255, 0.1)",
               }}
             >
-              Zero AI “Stench” = No Shadowban Risk
-            </span>
+              <Card.Body>
+                <h5 className="gradient-text">{feat.title}</h5>
+                <p style={{ color: "#aaa" }}>{feat.subtitle}</p>
+                {feat.suggestions ? (
+                  feat.suggestions.map((sugg, i) => (
+                    <motion.div
+                      key={i}
+                      whileHover={{ x: 6 }}
+                      className="suggestion-item d-flex align-items-center mb-2 px-3 py-2 rounded"
+                      style={{
+                        background: "rgba(255, 255, 255, 0.05)",
+                        color: "#ccc",
+                        backdropFilter: "blur(5px)",
+                        userSelect: "none",
+                        cursor: "default",
+                      }}
+                    >
+                      <span className="me-2 suggestion-icon">💡</span> {sugg}
+                    </motion.div>
+                  ))
+                ) : (
+                  <div className="display-3 feature-icon">{feat.image}</div>
+                )}
+              </Card.Body>
+            </Card>
           </motion.div>
-        </Container>
-      </div>
-      <div className="back bg-black text-center text-light py-5">
+        </Col>
+      ))}
+    </Row>
+
+    {/* Next features row */}
+    <Row className="g-4 justify-content-center mb-5">
+      {features.slice(2).map((feat, idx) => (
+        <Col md={4} key={idx}>
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInUp}
+            viewport={{ once: true }}
+            className="h-100"
+          >
+            <Card
+              className="bg-black text-light h-100 p-4 rounded-4 feature-card"
+              style={{
+                color: "#eee",
+                boxShadow: "0 4px 15px rgba(200, 0, 255, 0.1)",
+                border: "1px solid rgba(200, 0, 255, 0.1)",
+              }}
+            >
+              <Card.Body>
+                <h6 className="gradient-text">{feat.title}</h6>
+                <div className="display-6 mt-3 feature-icon">{feat.image}</div>
+              </Card.Body>
+            </Card>
+          </motion.div>
+        </Col>
+      ))}
+    </Row>
+
+    {/* Multi-profile management */}
+    <Row className="justify-content-center mb-5">
+      <Col md={10}>
+        <motion.div
+          className="bg-black text-light p-5 rounded-4 feature-card text-center"
+          style={{
+            boxShadow: "0 4px 15px rgba(200, 0, 255, 0.1)",
+            border: "1px solid rgba(200, 0, 255, 0.1)",
+          }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h5 className="gradient-text mb-2">Multi-Profile Management</h5>
+          <p className="text-secondary mb-4 mx-auto" style={{ maxWidth: "600px" }}>
+            Manage UpTo 5 Profiles at a time for your Team at $9 per User
+          </p>
+          <div className="d-flex justify-content-center gap-4 flex-wrap">
+            {[ // avatar colors and sizes
+              { color: "#d39cfb", size: 40 },
+              { color: "#c6f6d5", size: 60 },
+              { color: "#a3d8ff", size: 80 },
+              { color: "#ffbdbd", size: 60 },
+              { color: "#ffd699", size: 40 },
+            ].map(({ color, size }, idx) => (
+              <motion.div
+                key={idx}
+                style={{
+                  width: size,
+                  height: size,
+                  borderRadius: "50%",
+                  backgroundColor: color,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 0 8px rgba(200, 0, 255, 0.5)",
+                  cursor: "default",
+                  userSelect: "none",
+                }}
+                whileHover={{
+                  scale: 1.15,
+                  boxShadow: "0 0 16px rgba(200, 0, 255, 0.8)",
+                }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                {/* User icon */}
+                <svg
+                  width={size * 0.6}
+                  height={size * 0.6}
+                  viewBox="0 0 24 24"
+                  fill="white"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z" />
+                  <path d="M12 14c-3.33 0-6 2.67-6 6v2h12v-2c0-3.33-2.67-6-6-6z" />
+                </svg>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </Col>
+    </Row>
+
+    {/* Additional top features */}
+    <Row className="g-4 justify-content-center">
+      {topFeatures.map((item, index) => (
+        <Col md={4} key={index}>
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInUp}
+            viewport={{ once: true }}
+            className="h-100"
+          >
+            <Card
+              className="bg-black text-light h-100 p-4 rounded-4 feature-card"
+              style={{
+                boxShadow: "0 4px 15px rgba(200, 0, 255, 0.1)",
+                border: "1px solid rgba(200, 0, 255, 0.1)",
+              }}
+            >
+              <Card.Body>
+                <h5 className="gradient-text">{item.title}</h5>
+                <p className="text-secondary">{item.desc}</p>
+              </Card.Body>
+            </Card>
+          </motion.div>
+        </Col>
+      ))}
+    </Row>
+
+    {/* Bottom badge */}
+    <motion.div
+      className="mt-4 px-3 py-2 mb-3 rounded-pill mx-auto text-center"
+      style={{
+        maxWidth: "30%",
+        fontSize: "1rem",
+        padding: "0.6rem 1.2rem",
+        backgroundImage:
+          "linear-gradient(#000, #000), linear-gradient(to right, #c800ff, #00f2ff)",
+        backgroundOrigin: "border-box",
+        backgroundClip: "padding-box, border-box",
+        WebkitBackgroundClip: "padding-box, border-box",
+        border: "2px solid transparent",
+      }}
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+    >
+      <span
+        style={{
+          background: "linear-gradient(to right, #c800ff, #00f2ff)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+        }}
+      >
+        Zero AI “Stench” = No Shadowban Risk
+      </span>
+    </motion.div>
+  </Container>
+</div>
+
+
+      <div className="back  text-center text-light py-5">
         <Container>
-          {/* Gradient badge */}
+
 
           {/* Heading */}
-          <h2 className="text-secondary  fw-normal mb-3">
+          <motion.h2
+            className="text-secondary fw-normal mb-3"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
             Why you should worry about LinkedIn content?
-          </h2>
+          </motion.h2>
 
           {/* Main message */}
-          <h3 className="fw-bold text-white mb-3">
+          <motion.h3
+            className="fw-bold text-white mb-3"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: true }}
+            style={{
+              fontSize: "1.5rem",
+              fontFamily: "Inter, sans-serif",
+              background: "linear-gradient(to right, #ffffff, #888888)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
             LinkedIn is cracking down on AI
             <br />
             generated fluff.
-          </h3>
+          </motion.h3>
 
           {/* Supporting text */}
-          <p
+          <motion.p
             className="text-secondary mb-3 mx-auto"
             style={{ fontSize: "1.2rem" }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: true }}
           >
             Our posts read like you, not a bot. Authentic, relatable,
             <br />
             and built to perform.
-          </p>
+          </motion.p>
         </Container>
       </div>
-      <div className=" back bg-black text-white py-5">
+
+      <div className="back text-white py-5" id="pricing">
         <Container>
-          <h2 className="text-center text-light mb-5">Pricing & Features</h2>
+          <motion.h2
+            className="text-center mb-5"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true }}
+           style={{
+              fontSize: "2.5rem",
+              fontFamily: "Inter, sans-serif",
+              background: "linear-gradient(to right, #ffffff, #888888)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Pricing & Features
+          </motion.h2>
+
+
           <Row className="justify-content-center g-5">
-            {" "}
-            {pricingData.map((plan, index) => (
-              <Col
-                key={plan.title}
-                md={5}
-                className="mx-4 p-1 rounded-4 pricing-card" /* Added horizontal margin */
-                style={{
-                  backgroundColor:
-                    plan.title === "Premium" ? "transparent" : "#1a1a1a",
-                  border:
-                    plan.title === "Premium"
-                      ? "1px solid transparent"
+            {pricingData.map((plan, index) => {
+              const isSelected = selectedPlan === index;
+
+              return (
+                <Col
+                  as={motion.div}
+                  key={plan.title}
+                  md={5}
+                  className="mx-4 p-1 rounded-4 pricing-card"
+                  whileHover={{ scale: 1.02 }}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  onClick={() => setSelectedPlan(index)}
+                  style={{
+                    backgroundColor: "#1a1a1a",
+                    border: isSelected
+                      ? "1px solid #333"
                       : "1px solid #333",
-                  backgroundImage:
-                    plan.title === "Premium"
-                      ? "linear-gradient(135deg, #ff00ff 0%, #00ffff 100%)"
+                    backgroundImage: isSelected
+                      ? "linear-gradient(135deg, #a100a1 0%, #008b8b 100%)"
                       : "none",
-                  color: plan.title === "Premium" ? "#00ffff" : "#fff",
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  marginBottom: "2rem" /* Added bottom margin */,
-                }}
-              >
-                <div
-                  className="bg-black p-5 rounded-4 h-100" /* Increased padding */
-                  style={
-                    plan.title === "Premium" ? { borderRadius: "1rem" } : {}
-                  }
+                    color: isSelected ? "#ffff" : "#fff",
+                    cursor: "pointer",
+                    transition: "all 0.4s ease",
+                    marginBottom: "2rem",
+                  }}
                 >
-                  <h4 className="text-white mb-3">{plan.title}</h4>
-                  <h3 className="fw-bold mb-4">{plan.price}</h3>
-                  <Button
-                    variant={plan.buttonStyle === "gradient" ? "light" : "dark"}
-                    className={`w-100 my-4 py-3 waitlist-btn ${
-                      plan.buttonStyle === "gradient"
-                        ? "text-dark fw-semibold gradient-btn"
-                        : "dark-btn"
-                    }`}
-                    style={
-                      plan.buttonStyle === "gradient"
-                        ? {
-                            background:
-                              "linear-gradient(90deg, #ff00ff, #00ffff)",
-                            border: "none",
-                            transition:
-                              "transform 0.3s ease, box-shadow 0.3s ease",
-                          }
-                        : {}
-                    }
+                  <div
+                    className="bg-black p-5 rounded-4 h-100"
+                    style={isSelected ? { borderRadius: "1rem" } : {}}
                   >
-                    Signup for waitlist
-                  </Button>
-                  <ul className="list-unstyled mt-4 text-start feature-list">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="mb-3 d-flex align-items-start">
-                        <span className="me-2 feature-icon">✅</span>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Col>
-            ))}
+                    <h4 className="text-white mb-3">{plan.title}</h4>
+                    <h3 className="fw-bold mb-4">{plan.price}</h3>
+                    <motion.button
+                      whileHover={{
+                        scale: 1.05,
+                        boxShadow: "0 0 15px rgba(255, 0, 255, 0.4)",
+                      }}
+                      transition={{ duration: 0.3 }}
+                      className={`btn w-100 my-4 py-3 waitlist-btn ${plan.buttonStyle === ""
+                          ? "text-dark fw-semibold gradient-btn"
+                          : "dark-btn"
+                        }`}
+                      style={
+                        plan.buttonStyle === "gradient"
+                          ? {
+                              background: "#222",
+                            border: "1px solid #444",
+                            color: "#fff",
+                          }
+                          : {
+                            background: "#222",
+                            border: "1px solid #444",
+                            color: "#fff",
+                          }
+                      }
+                    >
+                      Signup for waitlist
+                    </motion.button>
+
+                    <ul className="list-unstyled mt-4 text-start feature-list">
+                      {plan.features.map((feature, idx) => (
+                        <li
+                          key={idx}
+                          className="mb-3 d-flex align-items-start"
+                        >
+                          <span className="me-2 feature-icon">✅</span>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Col>
+              );
+            })}
           </Row>
         </Container>
       </div>
       <div
-        className=" back py-5 "
+        className="back py-5"
         style={{
-          backgroundColor: "#000",
+          // backgroundColor: "#000",
         }}
       >
         <Container>
-          <div
+          <motion.div
             className="text-center p-5 mx-auto"
             style={{
               background: "radial-gradient(circle at center, #450057, #0c0010)",
               borderRadius: "2rem",
               maxWidth: "900px",
               color: "#fff",
+              boxShadow: "0 0 40px rgba(255, 0, 255, 0.1)",
             }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
           >
-            <h2 className="fw-bold mb-2">First 100 Users → KLYPE</h2>
-            <h5 className="mb-1">AI, Lifetime free ACCESS</h5>
-            <h6 className="text-muted mb-4" style={{ fontWeight: 500 }}>
+            <motion.h2
+              className="fw-bold mb-2"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+            >
+              First 100 Users →{" "}
+              <span style={{ background: "linear-gradient(90deg, #ff00ff, #00ffff)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                KLYPE
+              </span>
+            </motion.h2>
+
+            <motion.h5
+              className="mb-1"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              AI, Lifetime free ACCESS
+            </motion.h5>
+
+            <motion.h6
+              className="text-secondary mb-4"
+              style={{ fontWeight: 500 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            >
               (18 Spots left)
-            </h6>
-            <div className="d-flex justify-content-center gap-3 mb-3 flex-wrap">
-              <Button
-                variant="dark"
-                className="waitlist-btn px-4 py-2 rounded-pill"
+            </motion.h6>
+
+            <motion.div
+              className="d-flex justify-content-center gap-3 mb-3 flex-wrap"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              <motion.button
+                className="waitlist-btn px-4 py-2 rounded-pill fw-semibold"
                 onClick={handleShowForm}
+                whileHover={{ scale: 1.05, boxShadow: "0 0 12px #ff00ff" }}
+                transition={{ type: "spring", stiffness: 200 }}
+                style={{
+
+                  border: "2px solid #444",
+                  color: "#fff",
+                }}
               >
                 <span className="btn-content">
-                  <span className="btn-icon">❤️</span>
+                  <span className="btn-icon me-2">❤️</span>
                   Join the waitlist
                 </span>
-              </Button>
-              <Button
-                variant="dark"
-                className="telegram-btn px-4 py-2 rounded-pill"
+              </motion.button>
+
+              <motion.button
+                className="telegram-btn px-4 py-2 rounded-pill fw-semibold text-white"
+                whileHover={{ scale: 1.05, boxShadow: "0 0 12px #00ffff" }}
+                transition={{ type: "spring", stiffness: 200 }}
+                style={{
+
+                  border: "2px solid #444",
+                }}
               >
-                <span className="btn-content">
-                  {/* <span className="btn-icon">📩</span> */}
-                  <span className="btn-icon">
-                    <SiTelegram />
+                <span className="btn-content d-flex align-items-center">
+                  <span className="btn-icon me-2">
+                    <SiTelegram size={18} />
                   </span>
                   Join Telegram Group
                 </span>
-              </Button>
-            </div>
-            <p
+              </motion.button>
+            </motion.div>
+
+            <motion.p
               className="text-secondary mb-2"
               style={{
                 fontSize: "1.1rem",
                 paddingTop: "12px",
                 fontWeight: 350,
               }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
             >
               Get a 7-day free LinkedIn Content Calendar (worth $297) and
               experience the power of Klype firsthand!
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </Container>
       </div>
+
       <footer
         className="py-5"
         style={{ backgroundColor: "#000000", color: "#666" }}
