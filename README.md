@@ -86,7 +86,6 @@ cd server && npm run dev
 
 ## 📡 API Reference
 
-Detailed API documentation is available in our [API Guide](docs/API.md).
 
 | Endpoint | Method | Description | Auth Required |
 |----------|--------|-------------|---------------|
