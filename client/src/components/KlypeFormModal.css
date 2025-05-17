@@ -17,7 +17,6 @@
     background-color: rgba(255, 255, 255, 0.08) !important;
   }
   
-  /* Handle autofill styles */
   .form-input:-webkit-autofill,
   .form-input:-webkit-autofill:hover,
   .form-input:-webkit-autofill:focus {
@@ -26,7 +25,6 @@
     caret-color: white !important;
   }
   
-  /* Submit button hover state */
   .btn:hover {
     background-color: rgba(255, 255, 255, 0.15) !important;
     transform: translateY(-1px);
