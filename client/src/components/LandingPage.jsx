@@ -237,7 +237,7 @@ export default function LandingPage() {
               color: "#fff",
             }}
           >
-            98.2%
+            99.9%
           </div>
         </div>
 
@@ -275,7 +275,7 @@ export default function LandingPage() {
       <div className=" back bg-dark text-light py-5 text-center">
         <h2>
           How <span className="text-white">Klype</span>{" "}
-          <span className="text-secondary">works?</span>
+          <span className="text-secondary" style={{fontWeight:700}}>works?</span>
         </h2>
         <p className="mb-5">All Smart Features you need in one place</p>
 
@@ -285,7 +285,7 @@ export default function LandingPage() {
               <Card className="bg-black text-light h-100 p-4 rounded-4">
                 <Card.Body>
                   <h5>{features[0].title}</h5>
-                  <p className="text-muted">{features[0].subtitle}</p>
+                  <p className="text-secondary">{features[0].subtitle}</p>
                   <div className="display-3">{features[0].image}</div>
                 </Card.Body>
               </Card>
@@ -295,7 +295,7 @@ export default function LandingPage() {
               <Card className="bg-black text-light h-100 p-4 rounded-4">
                 <Card.Body>
                   <h5>{features[1].title}</h5>
-                  <p className="text-muted">{features[1].subtitle}</p>
+                  <p className="text-secondary">{features[1].subtitle}</p>
                   {features[1].suggestions.map((sugg, idx) => (
                     <div
                       key={idx}

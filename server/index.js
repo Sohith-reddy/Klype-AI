@@ -12,7 +12,7 @@ const app = express();
 app.use(cors());
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.error('MongoDB connection error:', err));
 
@@ -39,7 +39,7 @@ app.post('/api/waitlist', async (req, res) => {
   const { name, email, linkedin } = req.body;
 
   if (!name || !email || !linkedin) {
-    return res.status(400).json({ message: 'Please provide name, email, and LinkedIn URL' });
+    return res.status(404).json({ message: 'Please provide name, email, and LinkedIn URL' });
   }
 
   try {
@@ -55,5 +55,5 @@ app.post('/api/waitlist', async (req, res) => {
 // const adminRoutes = require('./routes/admin');
 // app.use('/admin', adminRoutes);
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
