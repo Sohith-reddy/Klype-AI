@@ -4,7 +4,7 @@ First off, thank you for considering contributing to Klype! It's people like you
 
 ## 🤝 Team
 
-- **Sohith** - _Project Lead & Backend Developer_
+- **Sohith** -_AI/ML Engineer_
   - GitHub: [@sohith](https://github.com/Sohith-reddy)
   - LinkedIn: [Sohith's Profile](https://linkedin.com/in/sohithreddy)
 
@@ -12,7 +12,7 @@ First off, thank you for considering contributing to Klype! It's people like you
   - GitHub: [@saketh](https://github.com/saki1205)
   - LinkedIn: [Saketh's Profile](https://www.linkedin.com/in/saketh-mothe/)
 
-- **Akshay** - _AI/ML Engineer_
+- **Akshay** - Project Lead && Full Stack developer
   - GitHub: [@akshay](https://github.com/akki-2004)
   - LinkedIn: [Akshay's Profile](https://www.linkedin.com/in/tirumani-satya-akshay-bb4885284)
 
