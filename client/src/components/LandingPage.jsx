@@ -780,8 +780,12 @@ export default function LandingPage() {
             </Col>
             <Col md={4}>
               <ul className="list-unstyled">
-                <li className="mb-2">Join our Telegram Channel</li>
-                <li className="mb-2">Join our Facebook Community</li>
+                <li className="mb-2">
+                  <a href="#">Join our Telegram Channel</a>
+                </li>
+                <li className="mb-2">
+                  <a href="#">Join our Facebook Community</a>
+                </li>
               </ul>
             </Col>
           </Row>

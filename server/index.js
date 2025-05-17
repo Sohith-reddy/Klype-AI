@@ -55,5 +55,5 @@ app.post('/api/waitlist', async (req, res) => {
 // const adminRoutes = require('./routes/admin');
 // app.use('/admin', adminRoutes);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
