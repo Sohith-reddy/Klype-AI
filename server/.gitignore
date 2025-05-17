@@ -2,7 +2,7 @@
 /node_modules/
 
 # Environment variables
-.env
+/.env
 
 # Logs
 logs
@@ -39,10 +39,10 @@ jspm_packages/
 *.tgz
 
 # dotenv environment variables file
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# .env.local
+# .env.development.local
+# .env.test.local
+# .env.production.local
 
 # VSCode settings folder
 .vscode/
