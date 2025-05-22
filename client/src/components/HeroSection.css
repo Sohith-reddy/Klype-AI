@@ -464,6 +464,8 @@ p {
   transform: translateY(-3px);
 }
 
+
+
 /* Responsive design */
 @media (max-width: 992px) {
   .pricing-card {
