@@ -165,7 +165,6 @@ export default function LandingPage() {
             >
               <Container fluid>
                 <div className="d-flex w-100 align-items-center justify-content-between">
-                  {/* Left: Brand */}
                   <Navbar.Brand
                     className="fw-bold"
                     style={{
@@ -179,60 +178,73 @@ export default function LandingPage() {
                   >
                     KLYPE
                   </Navbar.Brand>
-                  {/* Center: Nav links */}
-                  <Nav
-                    className="mx-auto d-none d-md-flex"
-                    style={{ gap: "2.5rem" }}
+
+                  <Navbar.Toggle
+                    aria-controls="basic-navbar-nav"
+                    style={{
+                      border: "none",
+                      background: "transparent",
+                      color: "#fff",
+                    }}
+                  />
+
+                  <Navbar.Collapse
+                    id="basic-navbar-nav"
+                    className="justify-content-center"
                   >
-                    {[
-                      { to: "features", label: "Features" },
-                      { to: "features", label: "How it works" },
-                      { to: "pricing", label: "Pricing" },
-                      { to: "testimonials", label: "Testimonials" },
-                      { to: "faq", label: "FAQ" },
-                    ].map((item, idx) => (
-                      <ScrollLink
-                        key={idx}
-                        to={item.to}
-                        smooth={true}
-                        duration={600}
-                        offset={-70}
-                        className="nav-link px-0"
-                        style={{
-                          cursor: "pointer",
-                          fontSize: "1.05rem",
-                          color: "#fff",
-                          fontWeight: 500,
-                          letterSpacing: "0.01em",
-                          background: "none",
-                          border: "none",
-                          transition: "color 0.2s",
-                        }}
-                        activeClass="active-nav-link"
-                        onMouseEnter={(e) =>
-                          (e.currentTarget.style.color = "#b48be6")
-                        }
-                        onMouseLeave={(e) =>
-                          (e.currentTarget.style.color = "#fff")
-                        }
-                      >
-                        {item.label}
-                      </ScrollLink>
-                    ))}
-                  </Nav>
-                  {/* Right: Sign in */}
+                    <Nav className="mx-auto" style={{ gap: "0.9rem" }}>
+                      {[
+                        { to: "features", label: "Features" },
+                        { to: "features", label: "How it works" },
+                        { to: "pricing", label: "Pricing" },
+                        { to: "testimonials", label: "Testimonials" },
+                        { to: "faq", label: "FAQ" },
+                      ].map((item, idx) => (
+                        <ScrollLink
+                          key={idx}
+                          to={item.to}
+                          smooth={true}
+                          duration={600}
+                          offset={-70}
+                          className="nav-link px-0"
+                          style={{
+                            cursor: "pointer",
+                            fontSize: "1.05rem",
+                            color: "#fff",
+                            fontWeight: 350,
+                            letterSpacing: "0.01em",
+                            background: "none",
+                            border: "none",
+                            transition: "color 0.2s",
+                            whiteSpace: "nowrap", // Prevent text wrapping
+                          }}
+                          activeClass="active-nav-link"
+                          onMouseEnter={(e) =>
+                            (e.currentTarget.style.color = "#b48be6")
+                          }
+                          onMouseLeave={(e) =>
+                            (e.currentTarget.style.color = "#fff")
+                          }
+                        >
+                          {item.label}
+                        </ScrollLink>
+                      ))}
+                    </Nav>
+                  </Navbar.Collapse>
+
                   <Button
                     variant="dark"
-                    className="rounded-pill px-4 py-2 ms-auto"
+                    className="rounded-pill px-3 py-2"
                     onClick={handleShowForm}
                     style={{
                       background: "#222",
                       border: "none",
-                      fontSize: "1rem",
+                      fontSize: "0.9rem",
                       fontWeight: 500,
                       color: "#fff",
                       boxShadow: "none",
-                      marginLeft: "2rem",
+                      whiteSpace: "nowrap", // Prevent text wrapping
+                      minWidth: "80px", // Ensure minimum width
                     }}
                   >
                     Sign in
@@ -251,7 +263,7 @@ export default function LandingPage() {
               margin: "0 auto",
               flex: 1,
               justifyContent: "center",
-              paddingTop: "2rem", // Add this line for additional padding
+              paddingTop: "2rem",
             }}
           >
             <motion.h1
@@ -261,19 +273,22 @@ export default function LandingPage() {
               variants={fadeIn}
               style={{
                 fontWeight: 700,
-                fontSize: "2.4rem", // Reduced font size
-                lineHeight: 1.3, // Adjusted line height for better spacing
-                marginBottom: "1.2rem", // Reduced margin
+                fontSize: "3.2rem", // Increased font size
+                lineHeight: 1.2,
+                marginBottom: "1.2rem",
                 letterSpacing: "-0.5px",
-                maxWidth: "800px", // Reduced max width to control line breaks
+                maxWidth: "1000px", // Increased max width
                 margin: "0 auto",
-                background: "linear-gradient(to right, #ffffff, #888888)", // Gradient color
+                background: "linear-gradient(to right, #ffffff, #888888)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
+                textAlign: "center",
               }}
             >
-              KLYPE turns Founder insight into Pipeline-Building Content without
-              sounding like AI or wasting $1000 a month.
+              <div style={{ marginBottom: "0.5rem" }}>
+                KLYPE turns Founder insight into Pipeline-Building Content
+              </div>
+              <div>without sounding like AI or wasting $1000 a month.</div>
             </motion.h1>
 
             <motion.p
@@ -288,6 +303,7 @@ export default function LandingPage() {
                 color: "#aaa",
                 fontWeight: 400,
                 opacity: 0.8,
+                marginBottom: "3rem", // Added more margin to ensure components are visible
               }}
             >
               Your ideas deserve better than recycled AI fluff.
@@ -296,7 +312,6 @@ export default function LandingPage() {
               dopamine.
             </motion.p>
 
-            {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -322,9 +337,8 @@ export default function LandingPage() {
                 content.
               </span>
             </motion.div>
-
             {/* Stats Section */}
-            <Container className="text-center pb-5">
+            <Container className="text-center pb-5 mt-5">
               <Row className="mt-5 g-4 justify-content-center">
                 {[
                   {
@@ -376,7 +390,7 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
-      <div className=" back   trusted-section py-5 text-white text-center">
+      <div className="back trusted-section py-5 text-white text-center">
         <Container>
           <motion.div
             initial="hidden"
