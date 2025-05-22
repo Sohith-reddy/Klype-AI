@@ -727,26 +727,7 @@ export default function LandingPage() {
                 >
                   <span style={{ fontSize: "1.8rem" }}>{step.icon}</span>
                 </div>
-                <div 
-                  className="position-absolute"
-                  style={{ 
-                    top: "-15px", 
-                    right: "-15px", 
-                    background: "linear-gradient(135deg, #b300b3, #ff00ff)",
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "50%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "0.9rem",
-                    fontWeight: "600",
-                    color: "#fff",
-                    boxShadow: "0 4px 10px rgba(179, 0, 179, 0.3)"
-                  }}
-                >
-                  {step.step}
-                </div>
+               
                 <Card.Body className="text-center">
                   <h5 style={{ 
                     fontSize: "1.1rem", 
@@ -1447,116 +1428,7 @@ export default function LandingPage() {
           </motion.div>
         </Container>
       </div>
-      <div
-        className="back py-5"
-        style={{
-          // backgroundColor: "#000",
-        }}
-      >
-        <Container>
-          <motion.div
-            className="text-center p-5 mx-auto"
-            style={{
-              background: "radial-gradient(circle at center, #450057, #0c0010)",
-              borderRadius: "2rem",
-              maxWidth: "900px",
-              color: "#fff",
-              boxShadow: "0 0 40px rgba(255, 0, 255, 0.1)",
-            }}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
-            <motion.h2
-              className="fw-bold mb-2"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-            >
-              First 100 Users →{" "}
-              <span style={{ background: "linear-gradient(90deg, #ff00ff, #00ffff)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                KLYPE
-              </span>
-            </motion.h2>
-
-            <motion.h5
-              className="mb-1"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-            >
-              AI, Lifetime free ACCESS
-            </motion.h5>
-
-            <motion.h6
-              className="text-secondary mb-4"
-              style={{ fontWeight: 500 }}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-            >
-              (18 Spots left)
-            </motion.h6>
-
-            <motion.div
-              className="d-flex justify-content-center gap-3 mb-3 flex-wrap"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-            >
-              <motion.button
-                className="waitlist-btn px-4 py-2 rounded-pill fw-semibold"
-                onClick={handleShowForm}
-                whileHover={{ scale: 1.05, boxShadow: "0 0 12px #ff00ff" }}
-                transition={{ type: "spring", stiffness: 200 }}
-                style={{
-
-                  border: "2px solid #444",
-                  color: "#fff",
-                }}
-              >
-                <span className="btn-content">
-                  <span className="btn-icon me-2">❤️</span>
-                  Join the waitlist
-                </span>
-              </motion.button>
-
-              <motion.button
-                className="telegram-btn px-4 py-2 rounded-pill fw-semibold text-white"
-                whileHover={{ scale: 1.05, boxShadow: "0 0 12px #00ffff" }}
-                transition={{ type: "spring", stiffness: 200 }}
-                style={{
-
-                  border: "2px solid #444",
-                }}
-              >
-                <span className="btn-content d-flex align-items-center">
-                  <span className="btn-icon me-2">
-                    <SiTelegram size={18} />
-                  </span>
-                  Join Telegram Group
-                </span>
-              </motion.button>
-            </motion.div>
-
-            <motion.p
-              className="text-secondary mb-2"
-              style={{
-                fontSize: "1.1rem",
-                paddingTop: "12px",
-                fontWeight: 350,
-              }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-            >
-              Get a 7-day free LinkedIn Content Calendar (worth $297) and
-              experience the power of Klype firsthand!
-            </motion.p>
-          </motion.div>
-        </Container>
-      </div>
+      
 
       {/* Testimonials Section */}
       <div id="testimonials" className="back py-5 text-white">
@@ -1789,7 +1661,7 @@ export default function LandingPage() {
           </motion.div>
         </Container>
       </div>
-
+              
       {/* FAQ Section */}
       <div id="faq" className="back py-5 text-white">
         <Container>
@@ -1903,7 +1775,116 @@ export default function LandingPage() {
           </Row>
         </Container>
       </div>
+<div
+        className="back py-5"
+        style={{
+          // backgroundColor: "#000",
+        }}
+      >
+        <Container>
+          <motion.div
+            className="text-center p-5 mx-auto"
+            style={{
+              background: "radial-gradient(circle at center, #450057, #0c0010)",
+              borderRadius: "2rem",
+              maxWidth: "900px",
+              color: "#fff",
+              boxShadow: "0 0 40px rgba(255, 0, 255, 0.1)",
+            }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              className="fw-bold mb-2"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+            >
+              First 100 Users →{" "}
+              <span style={{ background: "linear-gradient(90deg, #ff00ff, #00ffff)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                KLYPE
+              </span>
+            </motion.h2>
 
+            <motion.h5
+              className="mb-1"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              AI, Lifetime free ACCESS
+            </motion.h5>
+
+            <motion.h6
+              className="text-secondary mb-4"
+              style={{ fontWeight: 500 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            >
+              (18 Spots left)
+            </motion.h6>
+
+            <motion.div
+              className="d-flex justify-content-center gap-3 mb-3 flex-wrap"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              <motion.button
+                className="waitlist-btn px-4 py-2 rounded-pill fw-semibold"
+                onClick={handleShowForm}
+                whileHover={{ scale: 1.05, boxShadow: "0 0 12px #ff00ff" }}
+                transition={{ type: "spring", stiffness: 200 }}
+                style={{
+
+                  border: "2px solid #444",
+                  color: "#fff",
+                }}
+              >
+                <span className="btn-content">
+                  <span className="btn-icon me-2">❤️</span>
+                  Join the waitlist
+                </span>
+              </motion.button>
+
+              <motion.button
+                className="telegram-btn px-4 py-2 rounded-pill fw-semibold text-white"
+                whileHover={{ scale: 1.05, boxShadow: "0 0 12px #00ffff" }}
+                transition={{ type: "spring", stiffness: 200 }}
+                style={{
+
+                  border: "2px solid #444",
+                }}
+              >
+                <span className="btn-content d-flex align-items-center">
+                  <span className="btn-icon me-2">
+                    <SiTelegram size={18} />
+                  </span>
+                  Join Telegram Group
+                </span>
+              </motion.button>
+            </motion.div>
+
+            <motion.p
+              className="text-secondary mb-2"
+              style={{
+                fontSize: "1.1rem",
+                paddingTop: "12px",
+                fontWeight: 350,
+              }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+            >
+              Get a 7-day free LinkedIn Content Calendar (worth $297) and
+              experience the power of Klype firsthand!
+            </motion.p>
+          </motion.div>
+        </Container>
+      </div>
       <footer
         className="py-5"
         style={{ 
