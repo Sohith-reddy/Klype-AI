@@ -27,8 +27,71 @@ body {
   background-size: 100% 60%, 100% 60%, cover, cover;
   background-position: top center, bottom center, center center, center center;
   color: white;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
+/* Responsive font sizes */
+h1, .h1 {
+  font-size: calc(1.5rem + 1.5vw) !important;
+}
+
+h2, .h2 {
+  font-size: calc(1.3rem + 0.9vw) !important;
+}
+
+h3, .h3 {
+  font-size: calc(1.2rem + 0.6vw) !important;
+}
+
+h4, .h4 {
+  font-size: calc(1.1rem + 0.3vw) !important;
+}
+
+h5, .h5 {
+  font-size: 1rem !important;
+}
+
+p {
+  font-size: 0.95rem !important;
+}
+
+/* Testimonials section styles */
+.testimonial-card {
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(200, 0, 255, 0.2);
+}
+
+/* FAQ section styles */
+.accordion-button {
+  position: relative;
+  z-index: 1;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.accordion-button::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
 
 
 
@@ -401,10 +464,101 @@ body {
   transform: translateY(-3px);
 }
 
-/* Add spacing between cards on mobile */
-@media (max-width: 768px) {
+/* Responsive design */
+@media (max-width: 992px) {
   .pricing-card {
     margin-bottom: 2rem;
+  }
+  
+  .feature-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .testimonial-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  
+  p {
+    font-size: 0.9rem !important;
+  }
+  
+  .display-5 {
+    font-size: 1.8rem !important;
+  }
+  
+  .fs-5 {
+    font-size: 1rem !important;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem !important;
+  }
+  
+  .get-started-btn {
+    font-size: 0.95rem !important;
+    padding: 0.5rem 1.5rem !important;
+  }
+  
+  .stats-badge span {
+    font-size: 1rem !important;
+  }
+  
+  .feature-list li {
+    font-size: 0.9rem !important;
+  }
+  
+  .marquee {
+    gap: 1.5rem;
+  }
+  
+  .avatar {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .display-5 {
+    font-size: 1.5rem !important;
+  }
+  
+  .fs-5 {
+    font-size: 0.9rem !important;
+  }
+  
+  .get-started-btn {
+    font-size: 0.85rem !important;
+    padding: 0.4rem 1.2rem !important;
+  }
+  
+  .waitlist-btn, .telegram-btn {
+    font-size: 0.85rem !important;
+    padding: 0.4rem 1rem !important;
+  }
+  
+  .avatar {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .profile {
+    min-width: 100px;
   }
 }
 

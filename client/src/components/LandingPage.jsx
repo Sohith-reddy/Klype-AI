@@ -154,70 +154,119 @@ export default function LandingPage() {
           <motion.div variants={fadeIn}>
           <Navbar
   expand="md"
-  className="py-4 px-3 sticky-top"
+  className="py-2 px-3 sticky-top"
   style={{
-    backgroundColor: "radial-gradient(circle at center, #29002e, #000000)",
+    background: "rgba(0, 0, 0, 0.6)",
+    backdropFilter: "blur(15px)",
+    WebkitBackdropFilter: "blur(15px)",
+    borderBottom: "1px solid rgba(255, 255, 255, 0.03)",
     zIndex: 1030,
+    transition: "all 0.3s ease"
   }}
 >
   <Container>
-    <Navbar.Brand className="text-white fw-bold fs-4"   style={{ cursor: "pointer" }}>KLYPE</Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Brand className="fw-bold" style={{ 
+      cursor: "pointer",
+      fontSize: "1.3rem",
+      fontFamily: "Montserrat, sans-serif",
+      background: "linear-gradient(135deg, #ffffff, #aaaaaa)",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+      letterSpacing: "-0.5px"
+    }}>
+      KLYPE
+    </Navbar.Brand>
+    <Navbar.Toggle 
+      aria-controls="basic-navbar-nav" 
+      style={{ 
+        border: "none", 
+        color: "white",
+        background: "rgba(255, 255, 255, 0.05)"
+      }}
+    />
     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
-      <Nav className="gap-4">
-        <ScrollLink
-          to="features"
-          smooth={true}
-          duration={600}
-          offset={-70}
-          className="nav-link text-white fw-semibold"
-          style={{ cursor: "pointer" }}
-        >
-          Features
-        </ScrollLink>
-        <ScrollLink
-          to="features"
-          smooth={true}
-          duration={600}
-          offset={-70}
-          className="nav-link text-white"
-          style={{ cursor: "pointer" }}
-        >
-          How it works
-        </ScrollLink>
-        <ScrollLink
-          to="pricing"
-          smooth={true}
-          duration={600}
-          offset={-70}
-          className="nav-link text-white"
-          style={{ cursor: "pointer" }}
-        >
-          Pricing
-        </ScrollLink>
-        <ScrollLink
-          to="testimonials"
-          smooth={true}
-          duration={600}
-          offset={-70}
-          className="nav-link text-white"
-          style={{ cursor: "pointer" }}
-        >
-          Testimonials
-        </ScrollLink>
-        <ScrollLink
-          to="faq"
-          smooth={true}
-          duration={600}
-          offset={-70}
-          className="nav-link text-white"
-          style={{ cursor: "pointer" }}
-        >
-          FAQ
-        </ScrollLink>
+      <Nav className="gap-1">
+        {[
+          { to: "features", label: "Features" },
+          { to: "features", label: "How it works" },
+          { to: "pricing", label: "Pricing" },
+          { to: "testimonials", label: "Testimonials" },
+          { to: "faq", label: "FAQ" }
+        ].map((item, idx) => (
+          <ScrollLink
+            key={idx}
+            to={item.to}
+            smooth={true}
+            duration={600}
+            offset={-70}
+            className="nav-link px-3"
+            style={{ 
+              cursor: "pointer", 
+              fontSize: "0.85rem",
+              color: "#bbb",
+              fontWeight: "500",
+              transition: "all 0.3s ease",
+              position: "relative",
+              padding: "0.5rem 0"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "#fff";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "#bbb";
+            }}
+            activeClass="active-nav-link"
+          >
+            {item.label}
+            <div 
+              style={{
+                position: "absolute",
+                bottom: "0",
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "0",
+                height: "2px",
+                background: "linear-gradient(to right, rgba(200, 0, 255, 0.7), rgba(0, 242, 255, 0.7))",
+                transition: "all 0.3s ease",
+                opacity: 0
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.width = "80%";
+                e.currentTarget.style.opacity = 1;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.width = "0";
+                e.currentTarget.style.opacity = 0;
+              }}
+            />
+          </ScrollLink>
+        ))}
       </Nav>
     </Navbar.Collapse>
-    <Button variant="dark" className="rounded-pill px-4" onClick={handleShowForm}>
+    <Button 
+      variant="dark" 
+      className="rounded-pill px-4 py-2" 
+      onClick={handleShowForm}
+      style={{
+        background: "linear-gradient(135deg, rgba(200, 0, 255, 0.2), rgba(0, 242, 255, 0.2))",
+        border: "1px solid rgba(200, 0, 255, 0.3)",
+        fontSize: "0.85rem",
+        fontWeight: "500",
+        color: "#fff",
+        transition: "all 0.3s ease",
+        boxShadow: "0 4px 15px rgba(200, 0, 255, 0.1)"
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.background = "linear-gradient(135deg, rgba(200, 0, 255, 0.3), rgba(0, 242, 255, 0.3))";
+        e.currentTarget.style.transform = "translateY(-2px)";
+        e.currentTarget.style.boxShadow = "0 6px 20px rgba(200, 0, 255, 0.2)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.background = "linear-gradient(135deg, rgba(200, 0, 255, 0.2), rgba(0, 242, 255, 0.2))";
+        e.currentTarget.style.transform = "translateY(0)";
+        e.currentTarget.style.boxShadow = "0 4px 15px rgba(200, 0, 255, 0.1)";
+      }}
+    >
       Sign in
     </Button>
   </Container>
@@ -227,12 +276,11 @@ export default function LandingPage() {
 
           {/* Main Content */}
           <div
-            className="d-flex flex-column align-items-center justify-content-center text-center"
-            style={{ minHeight: "50vh" }}  
-
+            className="d-flex flex-column align-items-center justify-content-center text-center px-3"
+            style={{ minHeight: "50vh", maxWidth: "1200px", margin: "0 auto" }}
           >
             <motion.h1
-              className="display-5 fw-bold text-white"
+              className="fw-bold text-white"
               initial="hidden"
               animate="visible"
               variants={fadeIn}
@@ -241,54 +289,61 @@ export default function LandingPage() {
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 fontWeight: 700,
-                fontSize: "2.5rem",
+                fontSize: "calc(1.5rem + 1vw)",
+                lineHeight: 1.3,
+                marginBottom: "1rem"
               }}
             >
               KLYPE turns Founder insight into Pipeline-Building Content
-              <br />
               without sounding like AI or wasting $1000 a month.
             </motion.h1>
 
             <motion.p
-              className="text-secondary fs-5 mt-3"
+              className="text-secondary mt-2 mb-4"
               variants={fadeIn}
               initial="hidden"
               animate="visible"
+              style={{
+                fontSize: "1rem",
+                maxWidth: "800px",
+                margin: "0 auto"
+              }}
             >
               Your ideas deserve better than recycled AI fluff.
-              <br />
-              KLYPE turns real insight into content that drives DMs, not
-              dopamine.
+              KLYPE turns real insight into content that drives DMs, not dopamine.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="mt-4"
+              className="mt-3"
             >
               <Button
                 variant="light"
-                className="get-started-btn rounded-pill px-5 py-2 fw-semibold"
+                className="get-started-btn rounded-pill px-4 py-2 fw-semibold"
                 style={{
-                  border: "1.5px solid #ccc",
-                  background: "transparent",
-                  color: "#ccc",
-                  fontSize: "1.1rem",
+                  border: "1.5px solid rgba(255, 255, 255, 0.2)",
+                  background: "rgba(255, 255, 255, 0.03)",
+                  color: "#fff",
+                  fontSize: "0.95rem",
                   position: "relative",
                   overflow: "hidden",
                   transition: "all 0.3s ease-in-out",
                   zIndex: 1,
+                  boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)"
                 }}
                 onClick={handleShowForm}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "translateY(-3px)";
                   e.currentTarget.style.boxShadow =
-                    "0 5px 15px rgba(200, 0, 255, 0.3)";
+                    "0 8px 25px rgba(200, 0, 255, 0.3)";
+                  e.currentTarget.style.borderColor = "rgba(200, 0, 255, 0.5)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "none";
+                  e.currentTarget.style.boxShadow = "0 4px 15px rgba(0, 0, 0, 0.2)";
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)";
                 }}
               >
                 <span className="rocket-icon" role="img" aria-label="rocket">
@@ -304,61 +359,79 @@ export default function LandingPage() {
             <motion.div
               className="mt-4 px-3 py-2 rounded-pill mx-auto text-center"
               style={{
-                maxWidth: "40%",
-                background: "transparent",
-                color: "transparent",
-                fontSize: "0.9rem",
-                padding: "0.6rem 1.2rem",
+                maxWidth: "600px",
+                width: "90%",
+                background: "rgba(255, 255, 255, 0.03)",
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+                padding: "0.8rem 1.5rem",
                 textAlign: "center",
-                border: "2px solid transparent",
-                backgroundImage:
-                  "linear-gradient(#000, #000), linear-gradient(to right, #c800ff, #00f2ff)",
-                backgroundOrigin: "border-box",
-                backgroundClip: "padding-box, border-box",
-                WebkitBackgroundClip: "padding-box, border-box",
-                WebkitTextFillColor: "transparent",
-                backgroundSize: "100% 100%",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)",
+                borderRadius: "30px"
               }}
               variants={fadeIn}
               initial="hidden"
               animate="visible"
+              whileHover={{
+                boxShadow: "0 8px 32px rgba(200, 0, 255, 0.2)",
+                y: -5,
+                borderColor: "rgba(200, 0, 255, 0.3)"
+              }}
             >
               <span
                 style={{
                   background: "linear-gradient(to right, #c800ff, #00f2ff)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
+                  fontSize: "0.95rem",
+                  fontWeight: "500"
                 }}
               >
-                300x performance compared to generic, low-effort AI-generated
-                content.
+                300x performance compared to generic, low-effort AI-generated content
               </span>
             </motion.div>
 
-            <Row className="mt-4">
+            <Row className="mt-5 g-4 justify-content-center">
               {[
                 {
                   count: "1,000+",
-                  text: "hours of strategic content creation and optimization.",
+                  text: "hours of strategic content creation and optimization",
+                  icon: "⏱️"
                 },
                 {
                   count: "10,000+",
-                  text: "viral posts crafted to maximize reach and engagement.",
+                  text: "viral posts crafted to maximize reach and engagement",
+                  icon: "🚀"
                 },
                 {
                   count: "900+",
-                  text: "ROI-focused posts designed specifically to drive measurable business results.",
+                  text: "ROI-focused posts designed to drive measurable business results",
+                  icon: "📈"
                 },
               ].map((item, index) => (
-                <Col md={4} className="mb-4" key={index}>
+                <Col lg={4} md={6} className="mb-3" key={index}>
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 * index }}
+                    className="p-4 h-100"
+                    style={{
+                      background: "rgba(255, 255, 255, 0.02)",
+                      borderRadius: "16px",
+                      border: "1px solid rgba(255, 255, 255, 0.05)",
+                      transition: "all 0.3s ease"
+                    }}
+                    whileHover={{
+                      y: -5,
+                      boxShadow: "0 10px 30px rgba(200, 0, 255, 0.15)",
+                      background: "rgba(255, 255, 255, 0.05)"
+                    }}
                   >
-                    <h2 className="fw-bold">{item.count}</h2>
-                    <p className="text-secondary">{item.text}</p>
+                    <div className="mb-3" style={{ fontSize: "1.5rem" }}>{item.icon}</div>
+                    <h3 className="fw-bold mb-2" style={{ fontSize: "1.5rem" }}>{item.count}</h3>
+                    <p className="text-secondary mb-0" style={{ fontSize: "0.9rem" }}>{item.text}</p>
                   </motion.div>
                 </Col>
               ))}
@@ -547,38 +620,194 @@ export default function LandingPage() {
         </div>
       </div>
 
- <div className="back py-5 text-center" id="features" style={{ color: "#ccc" }}>
-  <motion.h2
-    initial={{ opacity: 0, y: 50 }}
+<div className="back py-5 text-center" id="features" style={{ color: "#ccc" }}>
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, ease: "easeOut" }}
+    transition={{ duration: 0.7, ease: "easeOut" }}
     viewport={{ once: true }}
     className="mb-5"
   >
-    How <span style={{ color: "#fff" }}>Klype</span>{" "}
-    <span style={{ color: "#b300b3", fontWeight: 700 }}>works?</span>
-    <br />
-    <p
-      className="fs-5 mx-auto"
-      style={{
-        maxWidth: "550px",
-        fontFamily: "Inter, sans-serif",
-        background: "linear-gradient(to right, #8f8f8f, #aaaaaa)",
+    <h2 className="mb-3" style={{ fontSize: "2.2rem", fontWeight: "600" }}>
+      How <span style={{ color: "#fff" }}>Klype</span>{" "}
+      <span style={{ 
+        background: "linear-gradient(135deg, #b300b3, #ff00ff)", 
         WebkitBackgroundClip: "text",
         WebkitTextFillColor: "transparent",
+        fontWeight: 700 
+      }}>works</span>
+    </h2>
+    <p
+      className="mx-auto"
+      style={{
+        maxWidth: "550px",
+        fontSize: "1rem",
+        fontWeight: "400",
+        color: "#999",
+        lineHeight: "1.6"
       }}
     >
-      All Smart Features you need in one place
+      Streamlined workflow to transform your LinkedIn presence with AI-powered content
     </p>
-  </motion.h2>
+  </motion.div>
 
   <Container>
+    {/* Process steps */}
+    <div className="position-relative mb-5">
+      {/* Connection line */}
+      <div 
+        className="position-absolute d-none d-lg-block" 
+        style={{ 
+          height: "3px", 
+          background: "linear-gradient(to right, rgba(200, 0, 255, 0.7), rgba(0, 242, 255, 0.7))",
+          top: "100px",
+          left: "10%",
+          right: "10%",
+          zIndex: 0
+        }}
+      ></div>
+      
+      <Row className="g-4 justify-content-center">
+        {[
+          { 
+            step: "01", 
+            title: "Connect & Configure", 
+            description: "Link your LinkedIn profile and set your content preferences and goals",
+            icon: "🔗",
+            color: "rgba(200, 0, 255, 0.2)"
+          },
+          { 
+            step: "02", 
+            title: "AI Content Generation", 
+            description: "Our AI analyzes your audience and creates tailored content strategies",
+            icon: "🧠",
+            color: "rgba(150, 100, 255, 0.2)"
+          },
+          { 
+            step: "03", 
+            title: "Review & Approve", 
+            description: "Preview generated content and make any adjustments before publishing",
+            icon: "✅",
+            color: "rgba(100, 150, 255, 0.2)"
+          },
+          { 
+            step: "04", 
+            title: "Schedule & Publish", 
+            description: "Set your posting schedule and let Klype handle the rest automatically",
+            icon: "🚀",
+            color: "rgba(0, 242, 255, 0.2)"
+          }
+        ].map((step, idx) => (
+          <Col lg={3} md={6} key={idx}>
+            <motion.div
+              whileHover={{ y: -8, boxShadow: "0 8px 30px rgba(0, 0, 0, 0.2)" }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              viewport={{ once: true }}
+              className="h-100 position-relative z-1"
+            >
+              <Card
+                className="bg-black text-light h-100 p-4 rounded-4 border-0"
+                style={{
+                  background: "rgba(0, 0, 0, 0.6)",
+                  backdropFilter: "blur(10px)",
+                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)",
+                  border: "1px solid rgba(255, 255, 255, 0.05)",
+                }}
+              >
+                <div 
+                  className="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+                  style={{ 
+                    width: "70px", 
+                    height: "70px", 
+                    background: step.color,
+                    border: "1px solid rgba(255, 255, 255, 0.1)"
+                  }}
+                >
+                  <span style={{ fontSize: "1.8rem" }}>{step.icon}</span>
+                </div>
+                <div 
+                  className="position-absolute"
+                  style={{ 
+                    top: "-15px", 
+                    right: "-15px", 
+                    background: "linear-gradient(135deg, #b300b3, #ff00ff)",
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "0.9rem",
+                    fontWeight: "600",
+                    color: "#fff",
+                    boxShadow: "0 4px 10px rgba(179, 0, 179, 0.3)"
+                  }}
+                >
+                  {step.step}
+                </div>
+                <Card.Body className="text-center">
+                  <h5 style={{ 
+                    fontSize: "1.1rem", 
+                    fontWeight: "600", 
+                    color: "#fff",
+                    marginBottom: "0.8rem"
+                  }}>
+                    {step.title}
+                  </h5>
+                  <p style={{ 
+                    fontSize: "0.9rem", 
+                    color: "#aaa",
+                    lineHeight: "1.5"
+                  }}>
+                    {step.description}
+                  </p>
+                </Card.Body>
+              </Card>
+            </motion.div>
+          </Col>
+        ))}
+      </Row>
+    </div>
+    
+    {/* Features heading */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="mt-5 pt-4 mb-5"
+    >
+      <h3 style={{ 
+        fontSize: "1.8rem", 
+        fontWeight: "600",
+        color: "#fff",
+        marginBottom: "1rem"
+      }}>
+        Powerful Features
+      </h3>
+      <p style={{ 
+        fontSize: "1rem", 
+        color: "#999",
+        maxWidth: "600px",
+        margin: "0 auto 2rem"
+      }}>
+        Everything you need to create high-converting LinkedIn content
+      </p>
+    </motion.div>
+
     {/* First features row */}
     <Row className="g-4 justify-content-center mb-5">
       {features.slice(0, 2).map((feat, idx) => (
         <Col md={6} key={idx}>
           <motion.div
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ 
+              y: -8,
+              boxShadow: idx === 0 
+                ? "0 8px 25px rgba(200, 0, 255, 0.2)" 
+                : "0 8px 25px rgba(0, 242, 255, 0.2)"
+            }}
             initial="hidden"
             whileInView="visible"
             variants={fadeInUp}
@@ -588,6 +817,8 @@ export default function LandingPage() {
             <Card
               className="bg-black text-light h-100 p-4 rounded-4 feature-card"
               style={{
+                background: "rgba(0, 0, 0, 0.6)",
+                backdropFilter: "blur(10px)",
                 color: "#eee",
                 boxShadow:
                   idx === 0
@@ -600,27 +831,44 @@ export default function LandingPage() {
               }}
             >
               <Card.Body>
-                <h5 className="gradient-text">{feat.title}</h5>
-                <p style={{ color: "#aaa" }}>{feat.subtitle}</p>
+                <h5 style={{ 
+                  fontSize: "1.2rem",
+                  fontWeight: "600",
+                  background: idx === 0 
+                    ? "linear-gradient(135deg, #b300b3, #ff00ff)"
+                    : "linear-gradient(135deg, #00a2ff, #00f2ff)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  marginBottom: "1rem"
+                }}>
+                  {feat.title}
+                </h5>
+                <p style={{ color: "#aaa", fontSize: "0.95rem" }}>{feat.subtitle}</p>
                 {feat.suggestions ? (
-                  feat.suggestions.map((sugg, i) => (
-                    <motion.div
-                      key={i}
-                      whileHover={{ x: 6 }}
-                      className="suggestion-item d-flex align-items-center mb-2 px-3 py-2 rounded"
-                      style={{
-                        background: "rgba(255, 255, 255, 0.05)",
-                        color: "#ccc",
-                        backdropFilter: "blur(5px)",
-                        userSelect: "none",
-                        cursor: "default",
-                      }}
-                    >
-                      <span className="me-2 suggestion-icon">💡</span> {sugg}
-                    </motion.div>
-                  ))
+                  <div className="mt-4">
+                    {feat.suggestions.map((sugg, i) => (
+                      <motion.div
+                        key={i}
+                        whileHover={{ x: 6 }}
+                        className="suggestion-item d-flex align-items-center mb-2 px-3 py-2 rounded"
+                        style={{
+                          background: "rgba(255, 255, 255, 0.05)",
+                          color: "#ccc",
+                          backdropFilter: "blur(5px)",
+                          userSelect: "none",
+                          cursor: "default",
+                          fontSize: "0.9rem",
+                          border: "1px solid rgba(255, 255, 255, 0.03)"
+                        }}
+                      >
+                        <span className="me-2 suggestion-icon">💡</span> {sugg}
+                      </motion.div>
+                    ))}
+                  </div>
                 ) : (
-                  <div className="display-3 feature-icon">{feat.image}</div>
+                  <div className="text-center mt-4">
+                    <div style={{ fontSize: "3rem" }}>{feat.image}</div>
+                  </div>
                 )}
               </Card.Body>
             </Card>
@@ -634,7 +882,10 @@ export default function LandingPage() {
       {features.slice(2).map((feat, idx) => (
         <Col md={4} key={idx}>
           <motion.div
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ 
+              y: -8,
+              boxShadow: "0 8px 25px rgba(200, 0, 255, 0.2)"
+            }}
             initial="hidden"
             whileInView="visible"
             variants={fadeInUp}
@@ -644,14 +895,25 @@ export default function LandingPage() {
             <Card
               className="bg-black text-light h-100 p-4 rounded-4 feature-card"
               style={{
+                background: "rgba(0, 0, 0, 0.6)",
+                backdropFilter: "blur(10px)",
                 color: "#eee",
                 boxShadow: "0 4px 15px rgba(200, 0, 255, 0.1)",
                 border: "1px solid rgba(200, 0, 255, 0.1)",
               }}
             >
-              <Card.Body>
-                <h6 className="gradient-text">{feat.title}</h6>
-                <div className="display-6 mt-3 feature-icon">{feat.image}</div>
+              <Card.Body className="text-center">
+                <h6 style={{ 
+                  fontSize: "1rem",
+                  fontWeight: "600",
+                  background: "linear-gradient(135deg, #b300b3, #ff00ff)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  marginBottom: "1rem"
+                }}>
+                  {feat.title}
+                </h6>
+                <div style={{ fontSize: "2.5rem", marginTop: "1rem" }}>{feat.image}</div>
               </Card.Body>
             </Card>
           </motion.div>
@@ -663,62 +925,153 @@ export default function LandingPage() {
     <Row className="justify-content-center mb-5">
       <Col md={10}>
         <motion.div
-          className="bg-black text-light p-5 rounded-4 feature-card text-center"
+          className="p-5 rounded-4 feature-card text-center"
           style={{
-            boxShadow: "0 4px 15px rgba(200, 0, 255, 0.1)",
+            background: "linear-gradient(145deg, rgba(0,0,0,0.8), rgba(20,0,20,0.9))",
+            backdropFilter: "blur(10px)",
+            boxShadow: "0 10px 30px rgba(200, 0, 255, 0.15)",
             border: "1px solid rgba(200, 0, 255, 0.1)",
           }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          whileHover={{ 
+            boxShadow: "0 15px 40px rgba(200, 0, 255, 0.25)",
+            y: -5
+          }}
         >
-          <h5 className="gradient-text mb-2">Multi-Profile Management</h5>
-          <p className="text-secondary mb-4 mx-auto" style={{ maxWidth: "600px" }}>
-            Manage Upto 5 Profiles at a time for your Team at $9 per User
-          </p>
-          <div className="d-flex justify-content-center gap-4 flex-wrap">
-            {[ // avatar colors and sizes
-              { color: "#d39cfb", size: 40 },
-              { color: "#c6f6d5", size: 60 },
-              { color: "#a3d8ff", size: 80 },
-              { color: "#ffbdbd", size: 60 },
-              { color: "#ffd699", size: 40 },
-            ].map(({ color, size }, idx) => (
-              <motion.div
-                key={idx}
-                style={{
-                  width: size,
-                  height: size,
-                  borderRadius: "50%",
-                  backgroundColor: color,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  boxShadow: "0 0 8px rgba(200, 0, 255, 0.5)",
-                  cursor: "default",
-                  userSelect: "none",
-                }}
-                whileHover={{
-                  scale: 1.15,
-                  boxShadow: "0 0 16px rgba(200, 0, 255, 0.8)",
-                }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                {/* User icon */}
-                <svg
-                  width={size * 0.6}
-                  height={size * 0.6}
-                  viewBox="0 0 24 24"
-                  fill="white"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z" />
-                  <path d="M12 14c-3.33 0-6 2.67-6 6v2h12v-2c0-3.33-2.67-6-6-6z" />
-                </svg>
-              </motion.div>
-            ))}
+          <div className="position-relative mb-4">
+            <h4 style={{ 
+              fontSize: "1.5rem",
+              fontWeight: "700",
+              background: "linear-gradient(135deg, #b300b3, #ff00ff)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              marginBottom: "1rem",
+              display: "inline-block"
+            }}>
+              Multi-Profile Management
+            </h4>
+            <div 
+              className="position-absolute"
+              style={{
+                top: "-15px",
+                right: "-15px",
+                background: "rgba(255, 255, 255, 0.1)",
+                backdropFilter: "blur(5px)",
+                padding: "4px 12px",
+                borderRadius: "20px",
+                fontSize: "0.8rem",
+                color: "#fff",
+                border: "1px solid rgba(255, 255, 255, 0.1)"
+              }}
+            >
+              Team Feature
+            </div>
           </div>
+          
+          <p className="mb-4 mx-auto" style={{ 
+            maxWidth: "600px",
+            color: "#aaa",
+            fontSize: "0.95rem",
+            lineHeight: "1.6"
+          }}>
+            Manage up to 5 LinkedIn profiles simultaneously for your entire team at just $9 per user
+          </p>
+          
+          <div className="position-relative">
+            <div 
+              className="position-absolute d-none d-md-block" 
+              style={{ 
+                height: "2px", 
+                background: "linear-gradient(to right, rgba(200, 0, 255, 0.1), rgba(200, 0, 255, 0.7), rgba(200, 0, 255, 0.1))",
+                top: "50%",
+                left: "10%",
+                right: "10%",
+                zIndex: 0
+              }}
+            ></div>
+            
+            <div className="d-flex justify-content-center gap-3 gap-md-4 flex-wrap position-relative" style={{ zIndex: 1 }}>
+              {[ // avatar colors and sizes
+                { color: "#d39cfb", size: 45, delay: 0 },
+                { color: "#c6f6d5", size: 65, delay: 0.1 },
+                { color: "#a3d8ff", size: 85, delay: 0.2 },
+                { color: "#ffbdbd", size: 65, delay: 0.3 },
+                { color: "#ffd699", size: 45, delay: 0.4 },
+              ].map(({ color, size, delay }, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, scale: 0.5, y: 20 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: delay,
+                    type: "spring",
+                    stiffness: 200,
+                  }}
+                  whileHover={{ 
+                    y: -10, 
+                    boxShadow: `0 10px 20px ${color}80`,
+                    scale: 1.05
+                  }}
+                  viewport={{ once: true }}
+                  style={{
+                    width: size,
+                    height: size,
+                    borderRadius: "50%",
+                    backgroundColor: color,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    boxShadow: `0 4px 15px ${color}50`,
+                    border: "2px solid rgba(255, 255, 255, 0.2)",
+                    position: "relative",
+                    zIndex: 2,
+                    cursor: "default",
+                    userSelect: "none",
+                  }}
+                >
+                  {/* User icon */}
+                  <svg
+                    width={size * 0.5}
+                    height={size * 0.5}
+                    viewBox="0 0 24 24"
+                    fill="rgba(0,0,0,0.7)"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z" />
+                    <path d="M12 14c-3.33 0-6 2.67-6 6v2h12v-2c0-3.33-2.67-6-6-6z" />
+                  </svg>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          
+          <Button 
+            variant="outline-light" 
+            className="mt-5 rounded-pill px-4 py-2"
+            style={{
+              background: "rgba(200, 0, 255, 0.1)",
+              borderColor: "rgba(200, 0, 255, 0.3)",
+              fontSize: "0.9rem",
+              fontWeight: "500",
+              transition: "all 0.3s ease"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(200, 0, 255, 0.2)";
+              e.currentTarget.style.borderColor = "rgba(200, 0, 255, 0.5)";
+              e.currentTarget.style.transform = "translateY(-3px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(200, 0, 255, 0.1)";
+              e.currentTarget.style.borderColor = "rgba(200, 0, 255, 0.3)";
+              e.currentTarget.style.transform = "translateY(0)";
+            }}
+          >
+            Learn More About Team Features
+          </Button>
         </motion.div>
       </Col>
     </Row>
@@ -838,103 +1191,260 @@ export default function LandingPage() {
 
       <div className="back text-white py-5" id="pricing">
         <Container>
-          <motion.h2
+          <motion.div
             className="text-center mb-5"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true }}
-           style={{
-              fontSize: "2.5rem",
-              fontFamily: "Inter, sans-serif",
-              background: "linear-gradient(to right, #ffffff, #888888)",
+          >
+            <h2 style={{
+              fontSize: "2rem",
+              fontWeight: "600",
+              background: "linear-gradient(135deg, #ffffff, #aaaaaa)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-            }}
-          >
-            Pricing & Features
-          </motion.h2>
+              marginBottom: "1rem"
+            }}>
+              Choose Your Plan
+            </h2>
+            <p className="mx-auto" style={{ 
+              maxWidth: "600px", 
+              fontSize: "0.95rem",
+              color: "#999",
+              lineHeight: "1.6"
+            }}>
+              Select the perfect plan for your LinkedIn growth strategy
+            </p>
+          </motion.div>
 
+          {/* Background decorative elements */}
+          <div className="position-relative">
+            <div 
+              className="position-absolute d-none d-lg-block" 
+              style={{
+                width: "300px",
+                height: "300px",
+                background: "radial-gradient(circle, rgba(200, 0, 255, 0.05) 0%, rgba(200, 0, 255, 0) 70%)",
+                top: "5%",
+                left: "0%",
+                borderRadius: "50%",
+                filter: "blur(50px)",
+                zIndex: 0
+              }}
+            ></div>
+            <div 
+              className="position-absolute d-none d-lg-block" 
+              style={{
+                width: "250px",
+                height: "250px",
+                background: "radial-gradient(circle, rgba(0, 242, 255, 0.05) 0%, rgba(0, 242, 255, 0) 70%)",
+                bottom: "10%",
+                right: "5%",
+                borderRadius: "50%",
+                filter: "blur(50px)",
+                zIndex: 0
+              }}
+            ></div>
 
-          <Row className="justify-content-center g-5">
-            {pricingData.map((plan, index) => {
-              const isSelected = selectedPlan === index;
+            <Row className="justify-content-center g-4 position-relative" style={{ zIndex: 1 }}>
+              {pricingData.map((plan, index) => {
+                const isSelected = selectedPlan === index;
+                const isPrimary = index === 1; // Assuming the second plan is the primary/recommended one
 
-              return (
-                <Col
-                  as={motion.div}
-                  key={plan.title}
-                  md={5}
-                  className="mx-4 p-1 rounded-4 pricing-card"
-                  whileHover={{ scale: 1.02 }}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  onClick={() => setSelectedPlan(index)}
-                  style={{
-                    backgroundColor: "#1a1a1a",
-                    border: isSelected
-                      ? "1px solid #333"
-                      : "1px solid #333",
-                    backgroundImage: isSelected
-                      ? "linear-gradient(135deg, #a100a1 0%, #008b8b 100%)"
-                      : "none",
-                    color: isSelected ? "#ffff" : "#fff",
-                    cursor: "pointer",
-                    transition: "all 0.4s ease",
-                    marginBottom: "2rem",
-                  }}
-                >
-                  <div
-                    className="bg-black p-5 rounded-4 h-100"
-                    style={isSelected ? { borderRadius: "1rem" } : {}}
+                return (
+                  <Col
+                    as={motion.div}
+                    key={plan.title}
+                    lg={4}
+                    md={6}
+                    className={`mx-md-2 pricing-card ${isPrimary ? 'order-md-2' : ''}`}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    onClick={() => setSelectedPlan(index)}
                   >
-                    <h4 className="text-white mb-3">{plan.title}</h4>
-                    <h3 className="fw-bold mb-4">{plan.price}</h3>
-                    <motion.button
-                      whileHover={{
-                        scale: 1.05,
-                        boxShadow: "0 0 15px rgba(255, 0, 255, 0.4)",
+                    <motion.div
+                      className={`h-100 rounded-4 position-relative ${isPrimary ? 'scale-md-1.05' : ''}`}
+                      whileHover={{ 
+                        y: -10,
+                        boxShadow: isPrimary 
+                          ? "0 20px 40px rgba(200, 0, 255, 0.25)" 
+                          : "0 15px 30px rgba(0, 0, 0, 0.2)"
                       }}
-                      transition={{ duration: 0.3 }}
-                      className={`btn w-100 my-4 py-3 waitlist-btn ${plan.buttonStyle === ""
-                          ? "text-dark fw-semibold gradient-btn"
-                          : "dark-btn"
-                        }`}
-                      style={
-                        plan.buttonStyle === "gradient"
-                          ? {
-                              background: "#222",
-                            border: "1px solid #444",
-                            color: "#fff",
-                          }
-                          : {
-                            background: "#222",
-                            border: "1px solid #444",
-                            color: "#fff",
-                          }
-                      }
+                      style={{
+                        background: isPrimary 
+                          ? "linear-gradient(145deg, rgba(20, 0, 20, 0.8), rgba(0, 0, 0, 0.9))" 
+                          : "rgba(0, 0, 0, 0.6)",
+                        backdropFilter: "blur(15px)",
+                        WebkitBackdropFilter: "blur(15px)",
+                        border: isPrimary 
+                          ? "1px solid rgba(200, 0, 255, 0.2)" 
+                          : "1px solid rgba(255, 255, 255, 0.05)",
+                        boxShadow: isPrimary 
+                          ? "0 10px 30px rgba(200, 0, 255, 0.15)" 
+                          : "0 8px 20px rgba(0, 0, 0, 0.15)",
+                        cursor: "pointer",
+                        transition: "all 0.4s ease",
+                        overflow: "hidden"
+                      }}
                     >
-                      Signup for waitlist
-                    </motion.button>
-
-                    <ul className="list-unstyled mt-4 text-start feature-list">
-                      {plan.features.map((feature, idx) => (
-                        <li
-                          key={idx}
-                          className="mb-3 d-flex align-items-start"
+                      {/* Popular tag */}
+                      {isPrimary && (
+                        <div 
+                          className="position-absolute"
+                          style={{
+                            top: "12px",
+                            right: "-30px",
+                            background: "linear-gradient(135deg, #b300b3, #ff00ff)",
+                            color: "#fff",
+                            padding: "5px 30px",
+                            fontSize: "0.7rem",
+                            fontWeight: "600",
+                            transform: "rotate(45deg)",
+                            boxShadow: "0 2px 10px rgba(200, 0, 255, 0.3)",
+                            zIndex: 2
+                          }}
                         >
-                          <span className="me-2 feature-icon">✅</span>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Col>
-              );
-            })}
-          </Row>
+                          POPULAR
+                        </div>
+                      )}
+                      
+                      <div className="p-4 p-lg-5 h-100 d-flex flex-column">
+                        {/* Plan name and price */}
+                        <div className="text-center mb-4">
+                          <h4 style={{ 
+                            fontSize: "1.2rem",
+                            fontWeight: "600",
+                            color: "#fff",
+                            marginBottom: "1rem"
+                          }}>{plan.title}</h4>
+                          
+                          <div style={{ 
+                            fontSize: isPrimary ? "2.5rem" : "2.2rem", 
+                            fontWeight: "700",
+                            background: isPrimary 
+                              ? "linear-gradient(135deg, #b300b3, #ff00ff)" 
+                              : "linear-gradient(135deg, #ffffff, #aaaaaa)",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                            marginBottom: "0.5rem"
+                          }}>
+                            {plan.price}
+                          </div>
+                          
+                          <p style={{ 
+                            fontSize: "0.85rem",
+                            color: "#999",
+                            marginBottom: "1.5rem"
+                          }}>
+                            {index === 0 ? "Billed monthly" : "Billed annually (save 20%)"}
+                          </p>
+                        </div>
+                        
+                        {/* CTA Button */}
+                        <motion.button
+                          whileHover={{
+                            y: -3,
+                            boxShadow: isPrimary 
+                              ? "0 8px 20px rgba(200, 0, 255, 0.3)" 
+                              : "0 8px 20px rgba(0, 0, 0, 0.2)",
+                          }}
+                          whileTap={{ scale: 0.98 }}
+                          transition={{ duration: 0.2 }}
+                          className="btn rounded-pill py-2 px-4 w-100 mb-4"
+                          style={
+                            isPrimary
+                              ? {
+                                  background: "linear-gradient(135deg, #b300b3, #ff00ff)",
+                                  border: "none",
+                                  color: "#fff",
+                                  fontWeight: "500",
+                                  fontSize: "0.9rem",
+                                  boxShadow: "0 4px 15px rgba(200, 0, 255, 0.2)"
+                                }
+                              : {
+                                  background: "rgba(255, 255, 255, 0.05)",
+                                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                                  color: "#fff",
+                                  fontWeight: "500",
+                                  fontSize: "0.9rem"
+                                }
+                          }
+                        >
+                          Get Started
+                        </motion.button>
+                        
+                        {/* Divider */}
+                        <div 
+                          style={{ 
+                            height: "1px", 
+                            background: "linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0))",
+                            margin: "0.5rem 0 1.5rem"
+                          }}
+                        ></div>
+                        
+                        {/* Features list */}
+                        <div className="flex-grow-1">
+                          <p style={{ 
+                            fontSize: "0.85rem",
+                            color: "#aaa",
+                            fontWeight: "500",
+                            marginBottom: "1rem"
+                          }}>
+                            What's included:
+                          </p>
+                          
+                          <ul className="list-unstyled feature-list mb-0">
+                            {plan.features.map((feature, idx) => (
+                              <li
+                                key={idx}
+                                className="mb-3 d-flex align-items-start"
+                              >
+                                <span className="me-2 feature-icon" style={{ color: isPrimary ? "#ff00ff" : "#00f2ff" }}>
+                                  {isPrimary ? "✦" : "✓"}
+                                </span>
+                                <span style={{ 
+                                  fontSize: "0.85rem",
+                                  color: "#ddd",
+                                  lineHeight: "1.5"
+                                }}>{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </Col>
+                );
+              })}
+            </Row>
+          </div>
+          
+          {/* Money-back guarantee */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-center mt-5 pt-3"
+          >
+            <div 
+              className="d-inline-block mx-auto px-4 py-2 rounded-pill"
+              style={{
+                background: "rgba(255, 255, 255, 0.03)",
+                border: "1px solid rgba(255, 255, 255, 0.05)"
+              }}
+            >
+              <p className="mb-0" style={{ fontSize: "0.85rem", color: "#aaa" }}>
+                <span style={{ color: "#00f2ff", marginRight: "8px" }}>✓</span>
+                14-day money-back guarantee
+                <span style={{ color: "#999", margin: "0 10px" }}>|</span>
+                <span style={{ color: "#00f2ff", marginRight: "8px" }}>✓</span>
+                Cancel anytime
+              </p>
+            </div>
+          </motion.div>
         </Container>
       </div>
       <div
@@ -1048,91 +1558,547 @@ export default function LandingPage() {
         </Container>
       </div>
 
+      {/* Testimonials Section */}
+      <div id="testimonials" className="back py-5 text-white">
+        <Container>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-5"
+          >
+            <h2 className="mb-3" style={{
+              fontSize: "2rem",
+              fontWeight: "600",
+              background: "linear-gradient(135deg, #ffffff, #aaaaaa)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent"
+            }}>
+              What Our Users Say
+            </h2>
+            <p className="mx-auto" style={{ 
+              maxWidth: "600px", 
+              fontSize: "0.95rem",
+              color: "#999",
+              lineHeight: "1.6"
+            }}>
+              Hear from professionals who have transformed their LinkedIn presence with Klype
+            </p>
+          </motion.div>
+
+          {/* Testimonial cards with modern design */}
+          <div className="position-relative">
+            {/* Background decorative elements */}
+            <div 
+              className="position-absolute d-none d-lg-block" 
+              style={{
+                width: "200px",
+                height: "200px",
+                background: "radial-gradient(circle, rgba(200, 0, 255, 0.1) 0%, rgba(200, 0, 255, 0) 70%)",
+                top: "10%",
+                left: "5%",
+                borderRadius: "50%",
+                filter: "blur(40px)",
+                zIndex: 0
+              }}
+            ></div>
+            <div 
+              className="position-absolute d-none d-lg-block" 
+              style={{
+                width: "300px",
+                height: "300px",
+                background: "radial-gradient(circle, rgba(0, 242, 255, 0.1) 0%, rgba(0, 242, 255, 0) 70%)",
+                bottom: "10%",
+                right: "5%",
+                borderRadius: "50%",
+                filter: "blur(40px)",
+                zIndex: 0
+              }}
+            ></div>
+
+            <Row className="g-4 justify-content-center position-relative" style={{ zIndex: 1 }}>
+              {[
+                {
+                  name: "Sarah Johnson",
+                  role: "Marketing Director",
+                  image: userImage,
+                  text: "Klype has completely transformed my LinkedIn strategy. I'm getting 3x more engagement and quality leads since I started using it.",
+                  rating: 5,
+                  gradient: "linear-gradient(135deg, rgba(200, 0, 255, 0.05), rgba(200, 0, 255, 0.15))"
+                },
+                {
+                  name: "Michael Chen",
+                  role: "Tech Entrepreneur",
+                  image: userImage1,
+                  text: "As a busy founder, I never had time for consistent LinkedIn posting. Klype solved that problem - now I have a steady stream of content that actually sounds like me.",
+                  rating: 5,
+                  gradient: "linear-gradient(135deg, rgba(0, 242, 255, 0.05), rgba(0, 242, 255, 0.15))"
+                },
+                {
+                  name: "Priya Sharma",
+                  role: "Sales Consultant",
+                  image: userImage2,
+                  text: "The personalized content calendar is a game-changer. I've seen a 40% increase in inbound inquiries since using Klype for just two months.",
+                  rating: 4,
+                  gradient: "linear-gradient(135deg, rgba(200, 0, 255, 0.05), rgba(0, 242, 255, 0.15))"
+                }
+              ].map((testimonial, index) => (
+                <Col lg={4} md={6} key={index}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.15 }}
+                    className="h-100"
+                    whileHover={{
+                      y: -10,
+                      boxShadow: "0 15px 30px rgba(0, 0, 0, 0.2)"
+                    }}
+                  >
+                    <div 
+                      className="testimonial-card h-100 p-4 rounded-4 position-relative"
+                      style={{
+                        background: "rgba(0, 0, 0, 0.6)",
+                        backdropFilter: "blur(15px)",
+                        WebkitBackdropFilter: "blur(15px)",
+                        border: "1px solid rgba(255, 255, 255, 0.05)",
+                        transition: "all 0.3s ease",
+                        boxShadow: "0 8px 20px rgba(0, 0, 0, 0.15)",
+                        overflow: "hidden"
+                      }}
+                    >
+                      {/* Quote icon */}
+                      <div 
+                        className="position-absolute"
+                        style={{
+                          top: "15px",
+                          right: "15px",
+                          fontSize: "3rem",
+                          opacity: "0.1",
+                          color: "#fff",
+                          fontFamily: "serif"
+                        }}
+                      >
+                        "
+                      </div>
+                      
+                      {/* Background gradient */}
+                      <div 
+                        className="position-absolute"
+                        style={{
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                          height: "100%",
+                          background: testimonial.gradient,
+                          opacity: 0.5,
+                          zIndex: -1
+                        }}
+                      ></div>
+                      
+                      {/* Rating */}
+                      <div className="mb-3" style={{ color: "#FFD700" }}>
+                        {Array(5).fill().map((_, i) => (
+                          <span key={i} style={{ fontSize: "0.9rem", marginRight: "3px" }}>
+                            {i < testimonial.rating ? "★" : "☆"}
+                          </span>
+                        ))}
+                      </div>
+                      
+                      {/* Testimonial text */}
+                      <p className="mb-4" style={{ 
+                        fontSize: "0.95rem", 
+                        lineHeight: "1.7", 
+                        color: "#eee",
+                        fontStyle: "italic",
+                        position: "relative",
+                        zIndex: 1
+                      }}>"{testimonial.text}"</p>
+                      
+                      {/* User info */}
+                      <div className="d-flex align-items-center mt-4">
+                        <div 
+                          className="rounded-circle overflow-hidden me-3"
+                          style={{
+                            width: "50px",
+                            height: "50px",
+                            border: "2px solid rgba(255, 255, 255, 0.2)",
+                            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)"
+                          }}
+                        >
+                          <img
+                            src={testimonial.image}
+                            alt={testimonial.name}
+                            style={{ 
+                              width: "100%", 
+                              height: "100%", 
+                              objectFit: "cover"
+                            }}
+                          />
+                        </div>
+                        <div>
+                          <h5 className="mb-0" style={{ 
+                            fontSize: "1rem", 
+                            fontWeight: "600",
+                            color: "#fff"
+                          }}>{testimonial.name}</h5>
+                          <p className="mb-0" style={{ 
+                            fontSize: "0.8rem",
+                            color: "#aaa",
+                            fontWeight: "500"
+                          }}>{testimonial.role}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </Col>
+              ))}
+            </Row>
+          </div>
+          
+          {/* Social proof */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center mt-5 pt-4"
+          >
+            <p style={{ 
+              fontSize: "0.9rem",
+              color: "#999",
+              fontWeight: "500"
+            }}>
+              Trusted by professionals from companies like
+            </p>
+            <div className="d-flex justify-content-center align-items-center flex-wrap gap-4 mt-3">
+              {["Google", "Microsoft", "LinkedIn", "Salesforce", "HubSpot"].map((company, idx) => (
+                <div 
+                  key={idx}
+                  style={{
+                    padding: "8px 16px",
+                    background: "rgba(255, 255, 255, 0.03)",
+                    borderRadius: "30px",
+                    fontSize: "0.85rem",
+                    color: "#aaa",
+                    border: "1px solid rgba(255, 255, 255, 0.05)"
+                  }}
+                >
+                  {company}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </Container>
+      </div>
+
+      {/* FAQ Section */}
+      <div id="faq" className="back py-5 text-white">
+        <Container>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-5"
+          >
+            <h2 className="fw-bold mb-3" style={{
+              fontSize: "1.8rem",
+              background: "linear-gradient(to right, #ffffff, #888888)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent"
+            }}>
+              Frequently Asked Questions
+            </h2>
+            <p className="text-secondary mx-auto" style={{ maxWidth: "700px", fontSize: "0.95rem" }}>
+              Everything you need to know about Klype
+            </p>
+          </motion.div>
+
+          <Row className="justify-content-center">
+            <Col lg={10}>
+              <div className="accordion custom-accordion" id="faqAccordion">
+                {[
+                  {
+                    question: "What is Klype?",
+                    answer: "Klype is an AI-powered LinkedIn content engine built for Founders, Freelancers, Consultants, to consistently create high-converting, personalized posts—without hiring a LinkedIn Ghostwriter."
+                  },
+                  {
+                    question: "How does Klype's AI-driven content calendar work?",
+                    answer: "Klype maps your ICP, tone, and GTM goals into a weekly content system. It auto-generates strategy-led post drafts tailored to your voice and audience pain points."
+                  },
+                  {
+                    question: "Can I automate LinkedIn posts using Klype?",
+                    answer: "Yes—Klype integrates with scheduling tools so you can review, approve, and auto-publish posts without managing them daily."
+                  },
+                  {
+                    question: "Is Klype suitable for users without technical expertise?",
+                    answer: "Absolutely. Klype is built for non-technical founders with no content background—it's plug-and-play, with a clean, intuitive UI."
+                  },
+                  {
+                    question: "How does Klype ensure content authenticity and avoid AI-detection algorithms on LinkedIn?",
+                    answer: "Klype uses humanized writing frameworks trained on real founder voices, avoiding robotic patterns and AI-detection triggers."
+                  },
+                  {
+                    question: "What are the cost benefits of using Klype compared to hiring content consultants?",
+                    answer: "Klype gives you strategy, writing, and scheduling at less than 10% of the cost of hiring a ghostwriter or agency—without the overhead."
+                  },
+                  {
+                    question: "Does Klype offer analytics to track content performance?",
+                    answer: "Yes. Klype tracks performance by post type, format, and timing—then uses that data to improve future content recommendations automatically."
+                  }
+                ].map((faq, index) => (
+                  <motion.div 
+                    key={index}
+                    className="accordion-item border-0 mb-3"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    style={{ 
+                      background: "rgba(255, 255, 255, 0.03)",
+                      borderRadius: "12px",
+                      overflow: "hidden",
+                      boxShadow: "0 4px 20px rgba(0, 0, 0, 0.15)",
+                      border: "1px solid rgba(255, 255, 255, 0.05)"
+                    }}
+                    whileHover={{
+                      boxShadow: "0 8px 30px rgba(200, 0, 255, 0.15)",
+                      borderColor: "rgba(200, 0, 255, 0.1)"
+                    }}
+                  >
+                    <h2 className="accordion-header" id={`heading${index}`}>
+                      <button
+                        className="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target={`#collapse${index}`}
+                        aria-expanded="false"
+                        aria-controls={`collapse${index}`}
+                        style={{
+                          background: "rgba(255, 255, 255, 0.03)",
+                          color: "#fff",
+                          fontSize: "0.95rem",
+                          fontWeight: "500",
+                          padding: "1rem 1.25rem",
+                          boxShadow: "none",
+                          borderBottom: "1px solid rgba(255, 255, 255, 0.05)"
+                        }}
+                      >
+                        <span className="me-3" style={{ color: "rgba(200, 0, 255, 0.7)", fontSize: "1rem" }}>Q:</span>
+                        {faq.question}
+                      </button>
+                    </h2>
+                    <div
+                      id={`collapse${index}`}
+                      className="accordion-collapse collapse"
+                      aria-labelledby={`heading${index}`}
+                      data-bs-parent="#faqAccordion"
+                    >
+                      <div className="accordion-body text-secondary" style={{ fontSize: "0.9rem", lineHeight: "1.6", background: "rgba(0, 0, 0, 0.2)" }}>
+                        <span className="me-2" style={{ color: "rgba(0, 242, 255, 0.7)", fontWeight: "500" }}>A:</span>
+                        {faq.answer}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
       <footer
         className="py-5"
-        style={{ backgroundColor: "#000000", color: "#666" }}
+        style={{ 
+          background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), #000000)",
+          color: "#666",
+          borderTop: "1px solid rgba(255, 255, 255, 0.05)"
+        }}
       >
         <Container>
-          <Row>
-            <Col md={4}>
+          <Row className="gy-4">
+            <Col lg={4} md={6}>
               <h2
                 style={{
-                  color: "#fff",
-                  fontSize: "2rem",
+                  background: "linear-gradient(to right, #ffffff, #888888)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  fontSize: "1.5rem",
                   marginBottom: "1rem",
+                  fontWeight: "600"
                 }}
               >
                 Klype
               </h2>
-              <p style={{ fontSize: "1.1rem", marginBottom: "2rem" }}>
+              <p style={{ fontSize: "0.9rem", marginBottom: "1.5rem", color: "#999" }}>
                 Empowering the world's professionals
-                <br />
-                to share their stories
+                to share their stories that convert
               </p>
               <div className="social-links d-flex gap-3">
                 <Link
                   to="#"
                   className="text-decoration-none"
-                  style={{ color: "#666" }}
+                  style={{ 
+                    color: "#666",
+                    transition: "all 0.3s ease",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "36px",
+                    height: "36px",
+                    borderRadius: "50%",
+                    background: "rgba(255, 255, 255, 0.05)"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = "#fff";
+                    e.currentTarget.style.background = "rgba(200, 0, 255, 0.2)";
+                    e.currentTarget.style.transform = "translateY(-3px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = "#666";
+                    e.currentTarget.style.background = "rgba(255, 255, 255, 0.05)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}
                 >
-                  <FaLinkedin size={24} />
+                  <FaLinkedin size={18} />
                 </Link>
                 <Link
                   to="#"
                   className="text-decoration-none"
-                  style={{ color: "#666" }}
+                  style={{ 
+                    color: "#666",
+                    transition: "all 0.3s ease",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "36px",
+                    height: "36px",
+                    borderRadius: "50%",
+                    background: "rgba(255, 255, 255, 0.05)",
+                    fontSize: "0.8rem",
+                    fontWeight: "600"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = "#fff";
+                    e.currentTarget.style.background = "rgba(0, 242, 255, 0.2)";
+                    e.currentTarget.style.transform = "translateY(-3px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = "#666";
+                    e.currentTarget.style.background = "rgba(255, 255, 255, 0.05)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}
                 >
-                  Klype
+                  K
                 </Link>
               </div>
             </Col>
-            <Col md={4}>
-              <ul className="list-unstyled" style={{ fontSize: "1.1rem" }}>
-                <li className="mb-3">
+            <Col lg={4} md={6}>
+              <h5 style={{ fontSize: "1rem", color: "#aaa", marginBottom: "1.2rem", fontWeight: "500" }}>Resources</h5>
+              <ul className="list-unstyled" style={{ fontSize: "0.9rem" }}>
+                <li className="mb-2">
                   <Link
                     to="#"
-                    className="text-decoration-none"
-                    style={{ color: "#666" }}
+                    className="text-decoration-none d-inline-block"
+                    style={{ 
+                      color: "#777",
+                      transition: "all 0.3s ease",
+                      padding: "0.3rem 0"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = "#fff";
+                      e.currentTarget.style.transform = "translateX(5px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = "#777";
+                      e.currentTarget.style.transform = "translateX(0)";
+                    }}
                   >
                     Privacy Policy
                   </Link>
                 </li>
-                <li className="mb-3">
+                <li className="mb-2">
                   <Link
                     to="#"
-                    className="text-decoration-none"
-                    style={{ color: "#666" }}
+                    className="text-decoration-none d-inline-block"
+                    style={{ 
+                      color: "#777",
+                      transition: "all 0.3s ease",
+                      padding: "0.3rem 0"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = "#fff";
+                      e.currentTarget.style.transform = "translateX(5px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = "#777";
+                      e.currentTarget.style.transform = "translateX(0)";
+                    }}
                   >
                     Terms & Conditions
                   </Link>
                 </li>
-                <li className="mb-3">
+                <li className="mb-2">
                   <Link
                     to="#"
-                    className="text-decoration-none"
-                    style={{ color: "#666" }}
+                    className="text-decoration-none d-inline-block"
+                    style={{ 
+                      color: "#777",
+                      transition: "all 0.3s ease",
+                      padding: "0.3rem 0"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = "#fff";
+                      e.currentTarget.style.transform = "translateX(5px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = "#777";
+                      e.currentTarget.style.transform = "translateX(0)";
+                    }}
                   >
                     Blogs & Resources
                   </Link>
                 </li>
               </ul>
             </Col>
-            <Col md={4}>
-              <ul className="list-unstyled" style={{ fontSize: "1.1rem" }}>
-                <li className="mb-3">
+            <Col lg={4} md={6}>
+              <h5 style={{ fontSize: "1rem", color: "#aaa", marginBottom: "1.2rem", fontWeight: "500" }}>Community</h5>
+              <ul className="list-unstyled" style={{ fontSize: "0.9rem" }}>
+                <li className="mb-2">
                   <Link
                     to="#"
-                    className="text-decoration-none"
-                    style={{ color: "#666" }}
+                    className="text-decoration-none d-inline-block"
+                    style={{ 
+                      color: "#777",
+                      transition: "all 0.3s ease",
+                      padding: "0.3rem 0"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = "#fff";
+                      e.currentTarget.style.transform = "translateX(5px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = "#777";
+                      e.currentTarget.style.transform = "translateX(0)";
+                    }}
                   >
                     Join our Telegram Channel
                   </Link>
                 </li>
-                <li className="mb-3">
+                <li className="mb-2">
                   <Link
                     to="#"
-                    className="text-decoration-none"
-                    style={{ color: "#666" }}
+                    className="text-decoration-none d-inline-block"
+                    style={{ 
+                      color: "#777",
+                      transition: "all 0.3s ease",
+                      padding: "0.3rem 0"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = "#fff";
+                      e.currentTarget.style.transform = "translateX(5px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = "#777";
+                      e.currentTarget.style.transform = "translateX(0)";
+                    }}
                   >
                     Join our Facebook Community
                   </Link>
@@ -1140,6 +2106,9 @@ export default function LandingPage() {
               </ul>
             </Col>
           </Row>
+          <div className="text-center mt-5 pt-4" style={{ borderTop: "1px solid rgba(255, 255, 255, 0.05)", fontSize: "0.85rem", color: "#555" }}>
+            © {new Date().getFullYear()} Klype. All rights reserved.
+          </div>
         </Container>
       </footer>
       <KlypeFormModal show={showForm} handleClose={handleCloseForm} />
