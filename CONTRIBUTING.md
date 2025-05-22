@@ -131,7 +131,6 @@ npm run test
 
 For any questions or concerns, reach out to:
 
-- Project Lead: <sohith@klype.com>
 - Technical Support: <support@klype.com>
 
 ## 🙏 Thank You
