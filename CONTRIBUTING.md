@@ -12,7 +12,7 @@ First off, thank you for considering contributing to Klype! It's people like you
   - GitHub: [@saketh](https://github.com/saki1205)
   - LinkedIn: [Saketh's Profile](https://www.linkedin.com/in/saketh-mothe/)
 
-- **Akshay** - Project Lead & Full Stack developer
+- **Akshay** - _Project Lead_ & _Full Stack developer_
   - GitHub: [@akshay](https://github.com/akki-2004)
   - LinkedIn: [Akshay's Profile](https://www.linkedin.com/in/tirumani-satya-akshay-bb4885284)
 
