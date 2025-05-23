@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
+<<<<<<< HEAD
     host: '0.0.0.0',
     port: 12000,
     allowedHosts: [
@@ -15,5 +16,13 @@ export default defineConfig({
     headers: {
       'Access-Control-Allow-Origin': '*'
     }
+=======
+    host: true,
+    allowedHosts: [
+      'work-1-kpdstgsdglteiogl.prod-runtime.all-hands.dev',
+      'work-2-kpdstgsdglteiogl.prod-runtime.all-hands.dev'
+    ],
+    cors: true
+>>>>>>> 5dd595195dc5c875221912625472365e3737ca0b
   }
 })
