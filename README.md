@@ -80,8 +80,8 @@ cp server/.env.example server/.env
 # Frontend (http://localhost:5173)
 cd client && npm run dev
 
-# Backend (http://localhost:3000)
-cd server && npm run dev
+# Backend (http://localhost:3001)
+cd server && npx nodemon index.js
 ```
 
 ## 📡 API Reference
