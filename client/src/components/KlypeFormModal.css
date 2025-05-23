@@ -1,0 +1,44 @@
+.form-input {
+  height: 50px;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.form-input:focus {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.form-input:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Updated autofill styles */
+.form-input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s !important;
+  -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.05) inset !important;
+  -webkit-text-fill-color: white !important;
+  caret-color: white !important;
+}
+
+.form-input:-webkit-autofill:hover {
+  transition: background-color 5000s ease-in-out 0s !important;
+  -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.05) inset !important;
+  -webkit-text-fill-color: white !important;
+}
+
+.form-input:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s !important;
+  -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.08) inset !important;
+  -webkit-text-fill-color: white !important;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  transform: translateY(-1px);
+}
