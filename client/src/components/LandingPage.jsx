@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React, { useState, useEffect, useRef } from "react";
-=======
-import React, { useState } from "react";
->>>>>>> 5dd595195dc5c875221912625472365e3737ca0b
 import {
   Container,
   Nav,
@@ -20,7 +16,6 @@ import userImage4 from "./images/image4.png";
 import userImage5 from "./images/image5.png";
 import userImage6 from "./images/image6.png";
 import { Link as ScrollLink } from "react-scroll";
-<<<<<<< HEAD
 import { 
   FaArrowRight, 
   FaCheck, 
@@ -44,18 +39,11 @@ import 'swiper/css/navigation';
 
 // Import custom styles
 import "./EnhancedUI.css";
-=======
-
->>>>>>> 5dd595195dc5c875221912625472365e3737ca0b
 import "./HeroSection.css";
 import { FaLinkedin } from "react-icons/fa";
 import { SiTelegram } from "react-icons/si";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
 import { motion, useScroll, useTransform } from "framer-motion";
-=======
-import { motion } from "framer-motion";
->>>>>>> 5dd595195dc5c875221912625472365e3737ca0b
 import KlypeFormModal from "./KlypeFormModal";
 
 export default function LandingPage() {
@@ -72,11 +60,7 @@ export default function LandingPage() {
       img: userImage2,
     },
     {
-<<<<<<< HEAD
       name: "Michael Johnson",
-=======
-      name: "Jane Smith",
->>>>>>> 5dd595195dc5c875221912625472365e3737ca0b
       role: "Content Strategist - TechCo",
       img: userImage3,
     },
@@ -87,16 +71,11 @@ export default function LandingPage() {
     },
     { name: "Amelia Davis", role: "Founder - StartupBoost", img: userImage6 },
     {
-<<<<<<< HEAD
       name: "Sarah Wilson",
-=======
-      name: "Jane Smith",
->>>>>>> 5dd595195dc5c875221912625472365e3737ca0b
       role: "Content Strategist - TechCo",
       img: userImage5,
     },
   ];
-<<<<<<< HEAD
   
   // Testimonials data
   const testimonials = [
@@ -198,31 +177,6 @@ export default function LandingPage() {
       icon: <FaLock style={{ color: "#fff" }} />,
       color: "linear-gradient(135deg, #ff9500, #ff00ff)",
       benefits: ["Data-driven decisions", "Performance tracking", "Strategy optimization"],
-=======
-  const companies = ["Google", "Amazon", "Govt. of India","Accenture","Microsoft"];
-  const features = [
-    {
-      title: "Personalized Content Calendar",
-      subtitle: "Plan, organize, and add content anytime.",
-      image: "🗓️",
-    },
-    {
-      title: "7-Day Personalized Content & Suggestions",
-      subtitle: "Get a tailored content plan with AI-driven recommendations",
-      suggestions: ["Suggestion", "Suggestion", "Suggestion"],
-    },
-    {
-      title: "Convert Voice Notes into Posts within 5 Seconds",
-      image: "🔊",
-    },
-    {
-      title: "Create your own Content Workflow within minutes",
-      image: "🧩",
-    },
-    {
-      title: "Convert YouTube Videos into Posts within 5 Seconds",
-      image: "🎥 ➡️ 📄",
->>>>>>> 5dd595195dc5c875221912625472365e3737ca0b
     },
   ];
   const topFeatures = [
@@ -593,11 +547,8 @@ export default function LandingPage() {
             Trusted BY 100+ LinkedIn Voices
           </h4>
 
-<<<<<<< HEAD
           {/* Testimonials Slider */}
          
-=======
->>>>>>> 5dd595195dc5c875221912625472365e3737ca0b
           {/* Scrolling avatars */}
           <div
             className="marquee-container mt-5 mb-4 d-flex justify-content-center align-items-center text-center"
@@ -913,7 +864,6 @@ export default function LandingPage() {
             </p>
           </motion.div>
 
-<<<<<<< HEAD
           {/* Features grid with modern design */}
           <Row className="g-4 justify-content-center mb-5">
             {features.map((feature, idx) => (
@@ -1055,142 +1005,10 @@ export default function LandingPage() {
                       }}
                     ></div>
                   </div>
-
-          {/* First features row
-          <Row className="g-4 justify-content-center mb-5">
-            {features.slice(0, 2).map((feat, idx) => (
-              <Col md={6} key={idx}>
-                <motion.div
-                  whileHover={{
-                    y: -8,
-                    boxShadow:
-                      idx === 0
-                        ? "0 8px 25px rgba(200, 0, 255, 0.2)"
-                        : "0 8px 25px rgba(0, 242, 255, 0.2)",
-                  }}
-                  initial="hidden"
-                  whileInView="visible"
-                  variants={fadeInUp}
-                  viewport={{ once: true }}
-                  className="h-100"
-                >
-                  <Card
-                    className="bg-black text-light h-100 p-4 rounded-4 feature-card"
-                    style={{
-                      background: "rgba(0, 0, 0, 0.6)",
-                      backdropFilter: "blur(10px)",
-                      color: "#eee",
-                      boxShadow:
-                        idx === 0
-                          ? "0 4px 15px rgba(200, 0, 255, 0.15)"
-                          : "0 4px 15px rgba(0, 242, 255, 0.15)",
-                      border:
-                        idx === 0
-                          ? "1px solid rgba(200, 0, 255, 0.1)"
-                          : "1px solid rgba(0, 242, 255, 0.1)",
-                    }}
-                  >
-                    <Card.Body>
-                      <h5
-                        style={{
-                          fontSize: "1.2rem",
-                          fontWeight: "600",
-                          background:
-                            idx === 0
-                              ? "linear-gradient(135deg, #b300b3, #ff00ff)"
-                              : "linear-gradient(135deg, #00a2ff, #00f2ff)",
-                          WebkitBackgroundClip: "text",
-                          WebkitTextFillColor: "transparent",
-                          marginBottom: "1rem",
-                        }}
-                      >
-                        {feat.title}
-                      </h5>
-                      <p style={{ color: "#aaa", fontSize: "0.95rem" }}>
-                        {feat.subtitle}
-                      </p>
-                      {feat.suggestions ? (
-                        <div className="mt-4">
-                          {feat.suggestions.map((sugg, i) => (
-                            <motion.div
-                              key={i}
-                              whileHover={{ x: 6 }}
-                              className="suggestion-item d-flex align-items-center mb-2 px-3 py-2 rounded"
-                              style={{
-                                background: "rgba(255, 255, 255, 0.05)",
-                                color: "#ccc",
-                                backdropFilter: "blur(5px)",
-                                userSelect: "none",
-                                cursor: "default",
-                                fontSize: "0.9rem",
-                                border: "1px solid rgba(255, 255, 255, 0.03)",
-                              }}
-                            >
-                              <span className="me-2 suggestion-icon">💡</span>{" "}
-                              {sugg}
-                            </motion.div>
-                          ))}
-                        </div>
-                      ) : (
-                        <div className="text-center mt-4">
-                          <div style={{ fontSize: "3rem" }}>{feat.image}</div>
-                        </div>
-                      )}
-                    </Card.Body>
-                  </Card>
                 </motion.div>
               </Col>
             ))}
           </Row>
-
-          {/* Next features row */}
-          {/* <Row className="g-4 justify-content-center mb-5">
-            {features.slice(2).map((feat, idx) => (
-              <Col md={4} key={idx}>
-                <motion.div
-                  whileHover={{
-                    y: -8,
-                    boxShadow: "0 8px 25px rgba(200, 0, 255, 0.2)",
-                  }}
-                  initial="hidden"
-                  whileInView="visible"
-                  variants={fadeInUp}
-                  viewport={{ once: true }}
-                  className="h-100"
-                >
-                  <Card
-                    className="bg-black text-light h-100 p-4 rounded-4 feature-card"
-                    style={{
-                      background: "rgba(0, 0, 0, 0.6)",
-                      backdropFilter: "blur(10px)",
-                      color: "#eee",
-                      boxShadow: "0 4px 15px rgba(200, 0, 255, 0.1)",
-                      border: "1px solid rgba(200, 0, 255, 0.1)",
-                    }}
-                  >
-                    <Card.Body className="text-center">
-                      <h6
-                        style={{
-                          fontSize: "1rem",
-                          fontWeight: "600",
-                          background:
-                            "linear-gradient(135deg, #b300b3, #ff00ff)",
-                          WebkitBackgroundClip: "text",
-                          WebkitTextFillColor: "transparent",
-                          marginBottom: "1rem",
-                        }}
-                      >
-                        {feat.title}
-                      </h6>
-                      <div style={{ fontSize: "2.5rem", marginTop: "1rem" }}>
-                        {feat.image}
-                      </div>
-                    </Card.Body>
-                  </Card>
-                </motion.div>
-              </Col>
-            ))} */}
-          </Row> */}
 
           {/* Multi-profile management */}
           <Row className="justify-content-center mb-5">
@@ -1361,38 +1179,7 @@ export default function LandingPage() {
             </Col>
           </Row>
 
-<<<<<<< HEAD
        
-=======
-          {/* Additional top features */}
-          <Row className="g-4 justify-content-center">
-            {topFeatures.map((item, index) => (
-              <Col md={4} key={index}>
-                <motion.div
-                  whileHover={{ scale: 1.03 }}
-                  initial="hidden"
-                  whileInView="visible"
-                  variants={fadeInUp}
-                  viewport={{ once: true }}
-                  className="h-100"
-                >
-                  <Card
-                    className="bg-black text-light h-100 p-4 rounded-4 feature-card"
-                    style={{
-                      boxShadow: "0 4px 15px rgba(200, 0, 255, 0.1)",
-                      border: "1px solid rgba(200, 0, 255, 0.1)",
-                    }}
-                  >
-                    <Card.Body>
-                      <h5 className="gradient-text">{item.title}</h5>
-                      <p className="text-secondary">{item.desc}</p>
-                    </Card.Body>
-                  </Card>
-                </motion.div>
-              </Col>
-            ))}
-          </Row>
->>>>>>> 5dd595195dc5c875221912625472365e3737ca0b
 
           {/* Bottom badge */}
           <motion.div
@@ -1777,11 +1564,7 @@ export default function LandingPage() {
       </div>
 
       {/* Testimonials Section */}
-<<<<<<< HEAD
       <div id="testimonials" className="back py-5 text-white testimonial-slider">
-=======
-      <div id="testimonials" className="back py-5 text-white">
->>>>>>> 5dd595195dc5c875221912625472365e3737ca0b
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1792,13 +1575,8 @@ export default function LandingPage() {
             <h2
               className="mb-3"
               style={{
-<<<<<<< HEAD
                 fontSize: "2.2rem",
                 fontWeight: "700",
-=======
-                fontSize: "2rem",
-                fontWeight: "600",
->>>>>>> 5dd595195dc5c875221912625472365e3737ca0b
                 background: "linear-gradient(135deg, #ffffff, #aaaaaa)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -1810,11 +1588,7 @@ export default function LandingPage() {
               className="mx-auto"
               style={{
                 maxWidth: "600px",
-<<<<<<< HEAD
                 fontSize: "1rem",
-=======
-                fontSize: "0.95rem",
->>>>>>> 5dd595195dc5c875221912625472365e3737ca0b
                 color: "#999",
                 lineHeight: "1.6",
               }}
@@ -1824,7 +1598,6 @@ export default function LandingPage() {
             </p>
           </motion.div>
 
-<<<<<<< HEAD
           {/* Testimonial slider with modern design */}
           <div className="position-relative">
             {/* Background decorative elements */}
@@ -1902,141 +1675,11 @@ export default function LandingPage() {
                                 <FaStar className="star-icon" /> : 
                                 <FaRegStar className="star-icon" style={{ color: 'rgba(255, 215, 0, 0.3)' }} />
                               }
-=======
-          {/* Testimonial cards with modern design */}
-          <div className="position-relative">
-            {/* Background decorative elements */}
-            <div
-              className="position-absolute d-none d-lg-block"
-              style={{
-                width: "200px",
-                height: "200px",
-                background:
-                  "radial-gradient(circle, rgba(200, 0, 255, 0.1) 0%, rgba(200, 0, 255, 0) 70%)",
-                top: "10%",
-                left: "5%",
-                borderRadius: "50%",
-                filter: "blur(40px)",
-                zIndex: 0,
-              }}
-            ></div>
-            <div
-              className="position-absolute d-none d-lg-block"
-              style={{
-                width: "300px",
-                height: "300px",
-                background:
-                  "radial-gradient(circle, rgba(0, 242, 255, 0.1) 0%, rgba(0, 242, 255, 0) 70%)",
-                bottom: "10%",
-                right: "5%",
-                borderRadius: "50%",
-                filter: "blur(40px)",
-                zIndex: 0,
-              }}
-            ></div>
-
-            <Row
-              className="g-4 justify-content-center position-relative"
-              style={{ zIndex: 1 }}
-            >
-              {[
-                {
-                  name: "Sarah Johnson",
-                  role: "Marketing Director",
-                  image: userImage,
-                  text: "Klype has completely transformed my LinkedIn strategy. I'm getting 3x more engagement and quality leads since I started using it.",
-                  rating: 5,
-                  gradient:
-                    "linear-gradient(135deg, rgba(200, 0, 255, 0.05), rgba(200, 0, 255, 0.15))",
-                },
-                {
-                  name: "Michael Chen",
-                  role: "Tech Entrepreneur",
-                  image: userImage1,
-                  text: "As a busy founder, I never had time for consistent LinkedIn posting. Klype solved that problem - now I have a steady stream of content that actually sounds like me.",
-                  rating: 5,
-                  gradient:
-                    "linear-gradient(135deg, rgba(0, 242, 255, 0.05), rgba(0, 242, 255, 0.15))",
-                },
-                {
-                  name: "Priya Sharma",
-                  role: "Sales Consultant",
-                  image: userImage2,
-                  text: "The personalized content calendar is a game-changer. I've seen a 40% increase in inbound inquiries since using Klype for just two months.",
-                  rating: 4,
-                  gradient:
-                    "linear-gradient(135deg, rgba(200, 0, 255, 0.05), rgba(0, 242, 255, 0.15))",
-                },
-              ].map((testimonial, index) => (
-                <Col lg={4} md={6} key={index}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.15 }}
-                    className="h-100"
-                    whileHover={{
-                      y: -10,
-                      boxShadow: "0 15px 30px rgba(0, 0, 0, 0.2)",
-                    }}
-                  >
-                    <div
-                      className="testimonial-card h-100 p-4 rounded-4 position-relative"
-                      style={{
-                        background: "rgba(0, 0, 0, 0.6)",
-                        backdropFilter: "blur(15px)",
-                        WebkitBackdropFilter: "blur(15px)",
-                        border: "1px solid rgba(255, 255, 255, 0.05)",
-                        transition: "all 0.3s ease",
-                        boxShadow: "0 8px 20px rgba(0, 0, 0, 0.15)",
-                        overflow: "hidden",
-                      }}
-                    >
-                      {/* Quote icon */}
-                      <div
-                        className="position-absolute"
-                        style={{
-                          top: "15px",
-                          right: "15px",
-                          fontSize: "3rem",
-                          opacity: "0.1",
-                          color: "#fff",
-                          fontFamily: "serif",
-                        }}
-                      >
-                        "
-                      </div>
-
-                      {/* Background gradient */}
-                      <div
-                        className="position-absolute"
-                        style={{
-                          top: 0,
-                          left: 0,
-                          right: 0,
-                          height: "100%",
-                          background: testimonial.gradient,
-                          opacity: 0.5,
-                          zIndex: -1,
-                        }}
-                      ></div>
-
-                      {/* Rating */}
-                      <div className="mb-3" style={{ color: "#FFD700" }}>
-                        {Array(5)
-                          .fill()
-                          .map((_, i) => (
-                            <span
-                              key={i}
-                              style={{ fontSize: "0.9rem", marginRight: "3px" }}
-                            >
-                              {i < testimonial.rating ? "★" : "☆"}
->>>>>>> 5dd595195dc5c875221912625472365e3737ca0b
                             </span>
                           ))}
                       </div>
 
                       {/* Testimonial text */}
-<<<<<<< HEAD
                       <div className="position-relative mb-4">
                         <FaQuoteLeft className="quote-icon quote-left" />
                         <p className="testimonial-quote">
@@ -2067,71 +1710,6 @@ export default function LandingPage() {
                 ))}
               </Swiper>
             </motion.div>
-=======
-                      <p
-                        className="mb-4"
-                        style={{
-                          fontSize: "0.95rem",
-                          lineHeight: "1.7",
-                          color: "#eee",
-                          fontStyle: "italic",
-                          position: "relative",
-                          zIndex: 1,
-                        }}
-                      >
-                        "{testimonial.text}"
-                      </p>
-
-                      {/* User info */}
-                      <div className="d-flex align-items-center mt-4">
-                        <div
-                          className="rounded-circle overflow-hidden me-3"
-                          style={{
-                            width: "50px",
-                            height: "50px",
-                            border: "2px solid rgba(255, 255, 255, 0.2)",
-                            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
-                          }}
-                        >
-                          <img
-                            src={testimonial.image}
-                            alt={testimonial.name}
-                            style={{
-                              width: "100%",
-                              height: "100%",
-                              objectFit: "cover",
-                            }}
-                          />
-                        </div>
-                        <div>
-                          <h5
-                            className="mb-0"
-                            style={{
-                              fontSize: "1rem",
-                              fontWeight: "600",
-                              color: "#fff",
-                            }}
-                          >
-                            {testimonial.name}
-                          </h5>
-                          <p
-                            className="mb-0"
-                            style={{
-                              fontSize: "0.8rem",
-                              color: "#aaa",
-                              fontWeight: "500",
-                            }}
-                          >
-                            {testimonial.role}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                </Col>
-              ))}
-            </Row>
->>>>>>> 5dd595195dc5c875221912625472365e3737ca0b
           </div>
 
           {/* Social proof */}
@@ -2143,11 +1721,7 @@ export default function LandingPage() {
           >
             <p
               style={{
-<<<<<<< HEAD
                 fontSize: "1rem",
-=======
-                fontSize: "0.9rem",
->>>>>>> 5dd595195dc5c875221912625472365e3737ca0b
                 color: "#999",
                 fontWeight: "500",
               }}
@@ -2157,7 +1731,6 @@ export default function LandingPage() {
             <div className="d-flex justify-content-center align-items-center flex-wrap gap-4 mt-3">
               {["Google", "Microsoft", "LinkedIn", "Salesforce", "HubSpot"].map(
                 (company, idx) => (
-<<<<<<< HEAD
                   <motion.div
                     key={idx}
                     whileHover={{ scale: 1.05, y: -5 }}
@@ -2174,21 +1747,6 @@ export default function LandingPage() {
                   >
                     {company}
                   </motion.div>
-=======
-                  <div
-                    key={idx}
-                    style={{
-                      padding: "8px 16px",
-                      background: "rgba(255, 255, 255, 0.03)",
-                      borderRadius: "30px",
-                      fontSize: "0.85rem",
-                      color: "#aaa",
-                      border: "1px solid rgba(255, 255, 255, 0.05)",
-                    }}
-                  >
-                    {company}
-                  </div>
->>>>>>> 5dd595195dc5c875221912625472365e3737ca0b
                 )
               )}
             </div>
